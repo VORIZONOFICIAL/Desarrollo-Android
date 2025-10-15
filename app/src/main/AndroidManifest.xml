@@ -13,6 +13,21 @@
         android:theme="@style/Theme.HorzaOne"
         tools:targetApi="31">
         <activity
+            android:name=".Ajustes"
+            android:exported="false" />
+        <activity
+            android:name=".Control_Emergencia"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes_Estadistica"
+            android:exported="false" />
+        <activity
+            android:name=".Asistencia_Accesos"
+            android:exported="false" />
+        <activity
+            android:name=".Gestion_Personal"
+            android:exported="false" />
+        <activity
             android:name=".PanelPersonal"
             android:exported="false"
             android:label="@string/title_activity_panel_personal"

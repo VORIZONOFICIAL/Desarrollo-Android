@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.home;
+package com.example.horza_one.ui.Ges_Per;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentHomeBinding;
+import com.example.horza_one.databinding.FragmentGalleryBinding;
 
-public class HomeFragment extends Fragment {
+public class Ges_Per_Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        Ges_Per_ViewModel Ges_Per_ViewModel =
+                new ViewModelProvider(this).get(Ges_Per_ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        Ges_Per_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
