@@ -42,7 +42,7 @@ public class PanelAdmin extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.Home_Fragment, R.id.ges_per, R.id.asis_acc, R.id.rep_est, R.id.ctrl_emer,R.id.ajustes)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_panel_admin);

@@ -10,7 +10,7 @@ public class Asis_Acc_ViewModel extends ViewModel {
 
     public Asis_Acc_ViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("Este es el fragmento de Asistencia");
     }
 
     public LiveData<String> getText() {

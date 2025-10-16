@@ -10,7 +10,7 @@ public class Ges_Per_ViewModel extends ViewModel {
 
     public Ges_Per_ViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("Este es el fragmento de Gestion Personal");
     }
 
     public LiveData<String> getText() {

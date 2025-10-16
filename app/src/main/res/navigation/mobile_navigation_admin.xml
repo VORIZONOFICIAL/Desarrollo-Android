@@ -3,17 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/ges_per">
+    app:startDestination="@+id/Home_Fragment">
 
     <fragment
+        android:id="@+id/Home_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Home.Home_Fragment"
+        android:label="Home Administrador"
+        tools:layout="@layout/fragment_home" />
+    <fragment
         android:id="@+id/ges_per"
-        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
         android:label="Gestion de Personal"
         tools:layout="@layout/activity_gestion_personal" />
 
     <fragment
         android:id="@+id/asis_acc"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label="Asistencias y Accesos"
         tools:layout="@layout/activity_asistencia_accesos" />
 
