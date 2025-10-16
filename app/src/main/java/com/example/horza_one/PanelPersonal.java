@@ -1,5 +1,6 @@
 package com.example.horza_one;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -42,12 +43,25 @@ public class PanelPersonal extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_bitacora, R.id.nav_horario, R.id.nav_con_per, R.id.nav_ev_per)
+                R.id.nav_home, R.id.nav_bitacora, R.id.nav_horario, R.id.nav_ev_per, R.id.nav_con_per)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_panel_personal);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.salir) {
+                Intent intent = new Intent(PanelPersonal.this, Selec_rol.class);
+                startActivity(intent);
+                finish();
+                return true;
+            } else {
+                // Para los demás items, usa la navegación normal
+                return NavigationUI.onNavDestinationSelected(item, navController);
+            }
+        });
     }
 
     @Override

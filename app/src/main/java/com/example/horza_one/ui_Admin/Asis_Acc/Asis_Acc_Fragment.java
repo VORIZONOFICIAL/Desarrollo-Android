@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentAsisAccBinding;
+import com.example.horza_one.databinding.FragmentAsisAccAdminBinding;
 
 public class Asis_Acc_Fragment extends Fragment {
 
-    private FragmentAsisAccBinding binding;
+    private FragmentAsisAccAdminBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Asis_Acc_ViewModel homeViewModel =
                 new ViewModelProvider(this).get(Asis_Acc_ViewModel.class);
 
-        binding = FragmentAsisAccBinding.inflate(inflater, container, false);
+        binding = FragmentAsisAccAdminBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

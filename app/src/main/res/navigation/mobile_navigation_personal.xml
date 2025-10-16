@@ -9,28 +9,28 @@
         android:id="@+id/nav_home"
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home_admin" />
 
     <fragment
         android:id="@+id/nav_bitacora"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_ajustes" />
+        android:name="com.example.horza_one.ui_Personal.Bitacora.Bitacora_Fragment"
+        android:label="Bitacora"
+        tools:layout="@layout/fragment_ajustes_admin" />
     <fragment
         android:id="@+id/nav_horario"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_ajustes" />
+        android:name="com.example.horza_one.ui_Personal.Horario.Horario_Fragment"
+        android:label="Hotario"
+        tools:layout="@layout/fragment_ajustes_admin" />
     <fragment
         android:id="@+id/nav_ev_per"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_ajustes" />
+        android:name="com.example.horza_one.ui_Personal.Ev_Personal.Ev_Personal_Fragment"
+        android:label="Evaluación Personal"
+        tools:layout="@layout/fragment_ajustes_admin" />
     <fragment
         android:id="@+id/nav_con_per"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_ajustes" />
+        android:name="com.example.horza_one.ui_Personal.C_Per.C_Per_Fragment"
+        android:label="Configuración Perfil"
+        tools:layout="@layout/fragment_ajustes_admin" />
 
 
 </navigation>

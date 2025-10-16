@@ -1,4 +1,4 @@
-package com.example.horza_one.ui_Admin.Ajustes;
+package com.example.horza_one.ui_Personal.Ev_Personal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentAjustesAdminBinding;
+import com.example.horza_one.databinding.FragmentEvPerPersonalBinding;
+import com.example.horza_one.ui_Personal.Ev_Personal.Ev_Personal_ViewModel;
 
-public class Ajustes_Fragment  extends Fragment {
-
-    private FragmentAjustesAdminBinding binding;
+public class Ev_Personal_Fragment extends Fragment {
+    private FragmentEvPerPersonalBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Ajustes_ViewModel Ajustes_ViewModel =
-                new ViewModelProvider(this).get(Ajustes_ViewModel.class);
+        Ev_Personal_ViewModel Ajustes_ViewModel =
+                new ViewModelProvider(this).get(Ev_Personal_ViewModel.class);
 
-        binding = FragmentAjustesAdminBinding.inflate(inflater, container, false);
+        binding = FragmentEvPerPersonalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

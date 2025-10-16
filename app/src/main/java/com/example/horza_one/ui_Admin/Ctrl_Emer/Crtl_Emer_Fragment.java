@@ -10,17 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentCtrlEmerBinding;
+import com.example.horza_one.databinding.FragmentAsisAccAdminBinding;
+import com.example.horza_one.databinding.FragmentCtrlEmerAdminBinding;
 
 public class Crtl_Emer_Fragment extends Fragment {
-    private FragmentCtrlEmerBinding binding;
+    private FragmentCtrlEmerAdminBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Crtl_Emer_ViewModel Crtl_Emer_ViewModel =
                 new ViewModelProvider(this).get(Crtl_Emer_ViewModel.class);
 
-        binding = FragmentCtrlEmerBinding.inflate(inflater, container, false);
+        binding = FragmentCtrlEmerAdminBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;

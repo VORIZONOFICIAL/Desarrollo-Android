@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentHomeBinding;
+import com.example.horza_one.databinding.FragmentHomeAdminBinding;
 import com.example.horza_one.ui_Admin.Ajustes.Ajustes_ViewModel;
 
 public class Home_Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentHomeAdminBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Home_ViewModel Ajustes_ViewModel =
                 new ViewModelProvider(this).get(Home_ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentHomeAdminBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;

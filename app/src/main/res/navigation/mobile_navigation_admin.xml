@@ -9,35 +9,35 @@
         android:id="@+id/Home_Fragment"
         android:name="com.example.horza_one.ui_Admin.Home.Home_Fragment"
         android:label="Home Administrador"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home_admin" />
     <fragment
         android:id="@+id/ges_per"
         android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
         android:label="Gestion de Personal"
-        tools:layout="@layout/fragment_ges_per" />
+        tools:layout="@layout/fragment_ges_per_admin" />
 
     <fragment
         android:id="@+id/asis_acc"
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label="Asistencias y Accesos"
-        tools:layout="@layout/fragment_asis_acc" />
+        tools:layout="@layout/fragment_asis_acc_admin" />
 
     <fragment
         android:id="@+id/rep_est"
         android:name="com.example.horza_one.ui_Admin.Rep_Est.Rep_Est_Fragment"
         android:label="Reportes y Estadisticas"
-        tools:layout="@layout/fragment_ren_est" />
+        tools:layout="@layout/fragment_ren_est_admin" />
 
     <fragment
         android:id="@+id/ctrl_emer"
         android:name="com.example.horza_one.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
         android:label="Control de Emergencias"
-        tools:layout="@layout/fragment_ctrl__emer" />
+        tools:layout="@layout/fragment_ctrl_emer_admin" />
 
     <fragment
         android:id="@+id/ajustes"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
         android:label="Ajustes"
-        tools:layout="@layout/fragment_ajustes" />
+        tools:layout="@layout/fragment_ajustes_admin" />
 
 </navigation>
