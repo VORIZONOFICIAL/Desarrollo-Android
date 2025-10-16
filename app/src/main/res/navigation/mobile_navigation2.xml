@@ -3,23 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/ges_per">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.horza_one.ui.Asis_Acc.Asis_Acc_Fragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/ges_per"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
+        android:label="Gestion de Personal"
+        tools:layout="@layout/activity_gestion_personal" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.horza_one.ui.Ges_Per.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/asis_acc"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
+        android:label="Asistencias y Accesos"
+        tools:layout="@layout/activity_asistencia_accesos" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.horza_one.ui.Rep_Est.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/rep_est"
+        android:name="com.example.horza_one.ui_Admin.Rep_Est.Rep_Est_Fragment"
+        android:label="Reportes y Estadisticas"
+        tools:layout="@layout/activity_reportes_estadistica" />
+
+    <fragment
+        android:id="@+id/ctrl_emer"
+        android:name="com.example.horza_one.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
+        android:label="Control de Emergencias"
+        tools:layout="@layout/activity_control_emergencia" />
+
+    <fragment
+        android:id="@+id/ajustes"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
+        android:label="Ajustes"
+        tools:layout="@layout/activity_ajustes" />
+
 </navigation>

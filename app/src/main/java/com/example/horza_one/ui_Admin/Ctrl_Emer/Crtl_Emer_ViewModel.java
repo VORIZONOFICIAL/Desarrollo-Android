@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Ctrl_Emer;
+package com.example.horza_one.ui_Admin.Ctrl_Emer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

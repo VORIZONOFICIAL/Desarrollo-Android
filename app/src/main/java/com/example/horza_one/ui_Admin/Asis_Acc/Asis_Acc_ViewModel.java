@@ -1,16 +1,16 @@
-package com.example.horza_one.ui.Rep_Est;
+package com.example.horza_one.ui_Admin.Asis_Acc;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class Rep_Est_ViewModel extends ViewModel {
+public class Asis_Acc_ViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public Rep_Est_ViewModel() {
+    public Asis_Acc_ViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {

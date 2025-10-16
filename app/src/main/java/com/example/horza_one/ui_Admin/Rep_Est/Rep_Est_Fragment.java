@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Ges_Per;
+package com.example.horza_one.ui_Admin.Rep_Est;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentGalleryBinding;
+import com.example.horza_one.databinding.FragmentSlideshowBinding;
 
-public class Ges_Per_Fragment extends Fragment {
+public class Rep_Est_Fragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Ges_Per_ViewModel Ges_Per_ViewModel =
-                new ViewModelProvider(this).get(Ges_Per_ViewModel.class);
+        Rep_Est_ViewModel slideshowViewModel =
+                new ViewModelProvider(this).get(Rep_Est_ViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        Ges_Per_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textSlideshow;
+        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

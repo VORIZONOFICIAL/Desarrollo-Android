@@ -22,9 +22,9 @@ public class panel_carga extends AppCompatActivity {
     private int progreso;
     private int dotState;
 
-    private final int durtotal = 4000;
-    private final int intervalo = 40;
-    private final int intervalot = 500;
+    private final int durtotal = 300;
+    private final int intervalo = 3;
+    private final int intervalot = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

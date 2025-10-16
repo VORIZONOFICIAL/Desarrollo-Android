@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Ajustes;
+package com.example.horza_one.ui_Admin.Ajustes;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -24,6 +24,10 @@
             android:id="@+id/ajustes"
             android:icon="@drawable/baseline_display_settings_24"
             android:title="Ajustes" />
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Salir"/>
 
     </group>
 </menu>

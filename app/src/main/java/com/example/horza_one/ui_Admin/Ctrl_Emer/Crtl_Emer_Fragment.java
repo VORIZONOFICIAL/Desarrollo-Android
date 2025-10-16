@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Rep_Est;
+package com.example.horza_one.ui_Admin.Ctrl_Emer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentSlideshowBinding;
+import com.example.horza_one.databinding.FragmentGalleryBinding;
 
-public class Rep_Est_Fragment extends Fragment {
-
-    private FragmentSlideshowBinding binding;
+public class Crtl_Emer_Fragment extends Fragment {
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Rep_Est_ViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(Rep_Est_ViewModel.class);
+        Crtl_Emer_ViewModel Crtl_Emer_ViewModel =
+                new ViewModelProvider(this).get(Crtl_Emer_ViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        Crtl_Emer_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 

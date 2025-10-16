@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Asis_Acc;
+package com.example.horza_one.ui_Admin.Ajustes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentHomeBinding;
+import com.example.horza_one.databinding.FragmentGalleryBinding;
 
-public class Asis_Acc_Fragment extends Fragment {
+public class Ajustes_Fragment  extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentGalleryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Asis_Acc_ViewModel homeViewModel =
-                new ViewModelProvider(this).get(Asis_Acc_ViewModel.class);
+        Ajustes_ViewModel Ajustes_ViewModel =
+                new ViewModelProvider(this).get(Ajustes_ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textGallery;
+        Ajustes_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 

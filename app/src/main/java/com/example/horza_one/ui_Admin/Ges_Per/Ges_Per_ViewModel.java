@@ -1,4 +1,4 @@
-package com.example.horza_one.ui.Ges_Per;
+package com.example.horza_one.ui_Admin.Ges_Per;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
