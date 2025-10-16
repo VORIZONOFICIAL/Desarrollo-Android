@@ -38,6 +38,7 @@ public class Selec_rol extends AppCompatActivity implements View.OnClickListener
             if (v.getId() == R.id.btnP){
                 intento = new Intent(Selec_rol.this, PanelPersonal.class);
                 startActivity(intento);
+                finish();
             }
     }
 }

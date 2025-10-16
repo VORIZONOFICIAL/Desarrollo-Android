@@ -41,6 +41,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         if (v.getId() == R.id.btnCR){
             Intent intento = new Intent(Login.this, Selec_rol.class);
             startActivity(intento);
+            finish();
         }
     }
 }

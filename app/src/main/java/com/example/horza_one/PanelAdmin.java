@@ -1,5 +1,6 @@
 package com.example.horza_one;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -48,6 +49,21 @@ public class PanelAdmin extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_panel_admin);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.salir) {
+                // Abrimos la actividad de selección de rol
+                Intent intent = new Intent(PanelAdmin.this, Selec_rol.class);
+                startActivity(intent);
+                finish(); // cerramos PanelAdmin para que no vuelva al presionar atrás
+                return true;
+            } else {
+                // Para los demás items, usa la navegación normal
+                return NavigationUI.onNavDestinationSelected(item, navController);
+            }
+        });
+
     }
 
     @Override

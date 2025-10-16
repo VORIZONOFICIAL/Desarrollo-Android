@@ -34,10 +34,12 @@ public class Panel_selec extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.btnregistro){
             intento = new Intent(Panel_selec.this, Login.class);
             startActivity(intento);
+            finish();
         } else
             if (v.getId() == R.id.btnis){
                 intento = new Intent(Panel_selec.this, Login.class);
                 startActivity(intento);
+                finish();
             }
     }
 }

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "Iniciando Aplicación", Toast.LENGTH_SHORT).show();
             Intent intento = new Intent(this, panel_carga.class);
             startActivity(intento);
+            finish();
         }
     }
 }
