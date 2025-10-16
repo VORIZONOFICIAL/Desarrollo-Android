@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentGalleryBinding;
+import com.example.horza_one.databinding.FragmentHomeBinding;
 import com.example.horza_one.ui_Admin.Ajustes.Ajustes_ViewModel;
 
 public class Home_Fragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Home_ViewModel Ajustes_ViewModel =
                 new ViewModelProvider(this).get(Home_ViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
+        final TextView textView = binding.textHome;
         Ajustes_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         return root;

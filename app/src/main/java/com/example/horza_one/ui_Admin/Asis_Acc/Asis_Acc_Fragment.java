@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentHomeBinding;
+import com.example.horza_one.databinding.FragmentAsisAccBinding;
 
 public class Asis_Acc_Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentAsisAccBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Asis_Acc_ViewModel homeViewModel =
                 new ViewModelProvider(this).get(Asis_Acc_ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentAsisAccBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
+        final TextView textView = binding.textGallery;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

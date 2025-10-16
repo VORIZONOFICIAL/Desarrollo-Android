@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.horza_one.databinding.FragmentGalleryBinding;
+import com.example.horza_one.databinding.FragmentGesPerBinding;
 
 public class Ges_Per_Fragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentGesPerBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         Ges_Per_ViewModel Ges_Per_ViewModel =
                 new ViewModelProvider(this).get(Ges_Per_ViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentGesPerBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textGallery;
