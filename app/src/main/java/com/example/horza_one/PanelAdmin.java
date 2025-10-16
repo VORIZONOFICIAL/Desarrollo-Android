@@ -53,10 +53,9 @@ public class PanelAdmin extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.salir) {
-                // Abrimos la actividad de selección de rol
                 Intent intent = new Intent(PanelAdmin.this, Selec_rol.class);
                 startActivity(intent);
-                finish(); // cerramos PanelAdmin para que no vuelva al presionar atrás
+                finish();
                 return true;
             } else {
                 // Para los demás items, usa la navegación normal

@@ -14,30 +14,30 @@
         android:id="@+id/ges_per"
         android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
         android:label="Gestion de Personal"
-        tools:layout="@layout/activity_gestion_personal" />
+        tools:layout="@layout/fragment_ges_per" />
 
     <fragment
         android:id="@+id/asis_acc"
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label="Asistencias y Accesos"
-        tools:layout="@layout/activity_asistencia_accesos" />
+        tools:layout="@layout/fragment_asis_acc" />
 
     <fragment
         android:id="@+id/rep_est"
         android:name="com.example.horza_one.ui_Admin.Rep_Est.Rep_Est_Fragment"
         android:label="Reportes y Estadisticas"
-        tools:layout="@layout/activity_reportes_estadistica" />
+        tools:layout="@layout/fragment_ren_est" />
 
     <fragment
         android:id="@+id/ctrl_emer"
         android:name="com.example.horza_one.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
         android:label="Control de Emergencias"
-        tools:layout="@layout/activity_control_emergencia" />
+        tools:layout="@layout/fragment_ctrl__emer" />
 
     <fragment
         android:id="@+id/ajustes"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
         android:label="Ajustes"
-        tools:layout="@layout/activity_ajustes" />
+        tools:layout="@layout/fragment_ajustes" />
 
 </navigation>
