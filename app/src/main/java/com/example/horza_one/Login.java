@@ -26,10 +26,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         botonR = findViewById(R.id.btnCR);
 
         nombre = findViewById(R.id.nombre);
-        contra = findViewById(R.id.contra);
         curp = findViewById(R.id.curp);
         rfc = findViewById(R.id.rfc);
-        dir = findViewById(R.id.direccion);
         correo = findViewById(R.id.correo);
 
         botonR.setOnClickListener(this);
