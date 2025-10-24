@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_margin="30dp"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginVertical="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/nombre"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:hint="Nombre" />
+
+        <EditText
+            android:id="@+id/matricula"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:layout_marginVertical="10dp"
+            android:hint="Matricula"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/contraseña"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:hint="Contraseña" />
+
+        <EditText
+            android:id="@+id/rfc"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:layout_marginVertical="10dp"
+            android:hint="RFC"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/curp"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:hint="CURP" />
+
+        <EditText
+            android:id="@+id/area"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:layout_marginVertical="10dp"
+            android:hint="Área"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/tel"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:hint="Telefono" />
+
+        <EditText
+            android:id="@+id/correo"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:layout_marginVertical="10dp"
+            android:hint="Correo"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/direccion"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/tarjeta_elevada"
+        android:gravity="center"
+        android:layout_marginVertical="10dp"
+        android:hint="Dirección"/>
+
+    <Spinner
+        android:id="@+id/selec_calendario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <EditText
+            android:id="@+id/t_contrato"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:hint="Tipo de Contrato" />
+
+        <EditText
+            android:id="@+id/f_alta"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/tarjeta_elevada"
+            android:gravity="center"
+            android:layout_marginVertical="10dp"
+            android:hint="Alta"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/est_lab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/tarjeta_elevada"
+        android:gravity="center"
+        android:layout_marginVertical="10dp"
+        android:hint="Estado Laboral"/>
+    <FrameLayout
+        android:id="@+id/frameis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/degradado_btn_azul_mor"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Crear Expediente"
+            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>
