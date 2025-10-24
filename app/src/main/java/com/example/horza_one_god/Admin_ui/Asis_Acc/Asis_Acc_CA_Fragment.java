@@ -38,7 +38,7 @@ public class Asis_Acc_CA_Fragment extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.Regresa) {
-            Navigation.findNavController(view).navigate(R.id.asis_Acc_CA_Fragment);
+            Navigation.findNavController(view).navigate(R.id.asis_acc);
         }
     }
 }

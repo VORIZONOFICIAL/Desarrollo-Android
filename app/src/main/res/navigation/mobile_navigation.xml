@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/asis_acc"
-        android:name="com.example.horza_one_god.Admin_ui.Asis_Acc.Asis_Acc_CA_Fragment"
+        android:name="com.example.horza_one_god.Admin_ui.Asis_Acc.Asis_Acc_Fragment"
         android:label=""
         tools:layout="@layout/admin_fragment_asis_acc" >
         <action
