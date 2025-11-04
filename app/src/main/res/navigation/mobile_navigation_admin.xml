@@ -50,7 +50,11 @@
         android:id="@+id/ajustes"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
         android:label=""
-        tools:layout="@layout/fragment_ajustes_admin" />
+        tools:layout="@layout/fragment_ajustes_admin" >
+        <action
+            android:id="@+id/action_ajustes_to_ajustes_Roles_Permisos2"
+            app:destination="@id/ajustes_Roles_Permisos2" />
+    </fragment>
     <fragment
         android:id="@+id/asis_Acc_CA_Fragment"
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment"
@@ -61,5 +65,10 @@
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Hist_Fragment"
         android:label=""
         tools:layout="@layout/fragment_asis__acc__hist_" />
+    <fragment
+        android:id="@+id/ajustes_Roles_Permisos2"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Roles_Permisos"
+        android:label="fragment_ajustes__roles__permisos"
+        tools:layout="@layout/fragment_ajustes__roles__permisos" />
 
 </navigation>

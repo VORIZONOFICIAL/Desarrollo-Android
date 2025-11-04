@@ -29,13 +29,13 @@ public class Ajustes_Fragment  extends Fragment implements View.OnClickListener 
         cardAreas = view.findViewById(R.id.cardAreas);
         cardPassword = view.findViewById(R.id.cardPassword);
         cardHorario = view.findViewById(R.id.cardHorario);
-        btnRegresar = view.findViewById(R.id.btnRegresar);
 
         cardRyP.setOnClickListener(this);
         cardAreas.setOnClickListener(this);
         cardPassword.setOnClickListener(this);
         cardHorario.setOnClickListener(this);
-        btnRegresar.setOnClickListener(this);
+
+
 
     }
 
@@ -48,11 +48,8 @@ public class Ajustes_Fragment  extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btnRegresar) {
-            Navigation.findNavController(view).navigate(R.id.ajustes_Fragment);
-        } else if (view.getId() == R.id.cardRoles) {
-            Navigation.findNavController(view).navigate(R.id.ajustes_Roles_Permisos);
-
+        if (view.getId() == R.id.cardRoles) {
+            Navigation.findNavController(view).navigate(R.id.ajustes_Roles_Permisos2);
         }
     }
 }

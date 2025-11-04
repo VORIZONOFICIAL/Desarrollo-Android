@@ -18,7 +18,6 @@ import com.example.horza_one.R;
 import com.example.horza_one.databinding.FragmentCtrlEmerAdminBinding;
 
 public class Crtl_Emer_Fragment extends Fragment implements View.OnClickListener {
-    ImageView regresar;
     LinearLayout BotonInicar;
 
     @Override
@@ -27,8 +26,6 @@ public class Crtl_Emer_Fragment extends Fragment implements View.OnClickListener
 
         BotonInicar = view.findViewById(R.id.btnIniciar);
 
-        regresar = view.findViewById(R.id.Regresa);
-        regresar.setOnClickListener(this);
 
 
     }
@@ -42,8 +39,6 @@ public class Crtl_Emer_Fragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.Regresa) {
-            Navigation.findNavController(view).navigate(R.id.Home_Fragment);
-        }
+
     }
     }

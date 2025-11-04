@@ -18,14 +18,11 @@ import com.example.horza_one.R;
 import com.example.horza_one.databinding.FragmentRenEstAdminBinding;
 
 public class Rep_Est_Fragment extends Fragment implements View.OnClickListener {
-    ImageView regresar;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        regresar = view.findViewById(R.id.Regresa);
-        regresar.setOnClickListener(this);
 
 
     }
@@ -39,8 +36,6 @@ public class Rep_Est_Fragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.Regresa) {
-            Navigation.findNavController(view).navigate(R.id.Home_Fragment);
-        }
+
     }
 }

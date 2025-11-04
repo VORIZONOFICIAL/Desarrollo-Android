@@ -18,14 +18,11 @@ import com.example.horza_one.R;
 
 
 public class Asis_Acc_Hist_Fragment extends Fragment implements View.OnClickListener {
-    ImageView regresar;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        regresar = view.findViewById(R.id.Regresa);
-        regresar.setOnClickListener(this);
     }
 
     @Override
@@ -37,8 +34,5 @@ public class Asis_Acc_Hist_Fragment extends Fragment implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.Regresa){
-            Navigation.findNavController(view).navigate(R.id.asis_acc);
-        }
     }
 }

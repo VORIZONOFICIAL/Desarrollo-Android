@@ -18,7 +18,6 @@ import com.example.horza_one.R;
 
 public class Ajustes_Roles_Permisos extends Fragment implements View.OnClickListener {
 
-    ImageView regresar;
     LinearLayout BotonInicar;
 
     @Override
@@ -27,23 +26,17 @@ public class Ajustes_Roles_Permisos extends Fragment implements View.OnClickList
 
         BotonInicar = view.findViewById(R.id.btnIniciar);
 
-        regresar = view.findViewById(R.id.Regresa);
-        regresar.setOnClickListener(this);
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ctrl_emer_admin, container, false);
+        return inflater.inflate(R.layout.fragment_ajustes__roles__permisos, container, false);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.Regresa) {
-            Navigation.findNavController(view).navigate(R.id.Home_Fragment);
-        }
+
     }
 }
