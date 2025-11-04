@@ -175,7 +175,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@drawable/degradado_btn_azul_mor"
+        android:background="@drawable/boton_principal_v2"
         android:clickable="true"
         android:focusable="true"
         android:padding="8dp">

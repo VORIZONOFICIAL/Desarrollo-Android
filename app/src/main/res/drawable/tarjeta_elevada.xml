@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Sombra capa 1 -->
-    <item
+    <item 
         android:top="0dp"
         android:left="0dp"
         android:right="0dp"
@@ -12,7 +12,7 @@
         </shape>
     </item>
     <!-- Sombra capa 2 -->
-    <item
+    <item 
         android:top="1dp"
         android:left="1dp"
         android:right="1dp"
@@ -23,16 +23,14 @@
         </shape>
     </item>
     <!-- Tarjeta -->
-    <item
+    <item 
         android:top="2dp"
         android:left="2dp"
         android:right="2dp"
         android:bottom="4dp">
         <shape android:shape="rectangle">
-        <solid android:color="#FFFFFF"/>
-            <corners android:radius="16dp" />
-            <stroke android:width="2px"
-                android:color="@color/black"/>
+            <solid android:color="@color/background_card"/>
+            <corners android:radius="16dp"/>
         </shape>
     </item>
 </layer-list>
