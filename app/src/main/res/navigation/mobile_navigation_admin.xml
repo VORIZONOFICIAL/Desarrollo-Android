@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/ajustes_Roles_Permisos2"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Roles_Permisos"
-        android:label="fragment_ajustes__roles__permisos"
+        android:label=""
         tools:layout="@layout/fragment_ajustes__roles__permisos" />
 
 </navigation>
