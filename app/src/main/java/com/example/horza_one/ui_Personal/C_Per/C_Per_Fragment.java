@@ -24,8 +24,6 @@ public class C_Per_Fragment extends Fragment {
         binding = FragmentConfigPerPersonalBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        Ajustes_ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         return root;
     }

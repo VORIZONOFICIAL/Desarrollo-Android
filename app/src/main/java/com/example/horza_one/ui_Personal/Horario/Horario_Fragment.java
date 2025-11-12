@@ -35,9 +35,13 @@ public class Horario_Fragment extends Fragment {
 
         // 3️⃣ Crea las filas del horario
         String[][] horario = {
-                {"8:00", "Matemáticas", "Español", "Historia", "Física", "Inglés"},
-                {"9:00", "Arte", "Matemáticas", "Deporte", "Ciencias", "Música"},
-                {"10:00", "Química", "Historia", "Matemáticas", "Programación", "Física"}
+                {"7:00 - 8:00", "Matemáticas I (1°A)", "Matemáticas II (2°B)", "Matemáticas I (1°A)", "Matemáticas II (2°B)", "Matemáticas I (1°A)"},
+                {"8:00 - 9:00", "Matemáticas I (1°B)", "Matemáticas II (2°A)", "Matemáticas I (1°B)", "Matemáticas II (2°A)", "Matemáticas I (1°B)"},
+                {"9:00 - 10:00", "Libre", "Libre", "Matemáticas II (2°A)", "Libre", "Libre"},
+                {"10:00 - 10:30", "Receso", "Receso", "Receso", "Receso", "Receso"},
+                {"10:30 - 11:30", "Matemáticas III (3°A)", "Matemáticas III (3°B)", "Libre", "Matemáticas III (3°A)", "Matemáticas III (3°B)"},
+                {"11:30 - 12:30", "Tutoría 1°B", "Planeación", "Tutoría 2°A", "Reunión académica", "Planeación"},
+                {"12:30 - 13:30", "Libre", "Matemáticas II (2°B)", "Libre", "Matemáticas I (1°B)", "Evaluaciones"}
         };
 
         for (String[] fila : horario) {
@@ -46,7 +50,6 @@ public class Horario_Fragment extends Fragment {
                 TextView tv = new TextView(getContext());
                 tv.setText(celda);
                 tv.setPadding(6, 16, 6, 16);
-                tv.setBackgroundResource(R.drawable.borde_celda); // 🔹 Aquí aplicas el borde
                 tr.addView(tv);
             }
             tabla.addView(tr);
