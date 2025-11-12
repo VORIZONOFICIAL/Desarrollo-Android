@@ -32,6 +32,7 @@ public class Selec_rol extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         Intent intento;
+
         if (v.getId() == R.id.Admin){
             intento = new Intent(Selec_rol.this, PanelAdmin.class);
             startActivity(intento);
@@ -39,7 +40,6 @@ public class Selec_rol extends AppCompatActivity implements View.OnClickListener
             if (v.getId() == R.id.personal){
                 intento = new Intent(Selec_rol.this, PanelPersonal.class);
                 startActivity(intento);
-                finish();
             }
     }
 }

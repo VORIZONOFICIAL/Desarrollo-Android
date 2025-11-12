@@ -5,31 +5,31 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
-    <activity
+    <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.horza_one.PanelPersonal"
-        android:label="@string/menu_home"
-        tools:layout="@layout/activity_panel_personal" />
+        android:name="com.example.horza_one.ui_Personal.Home.HomeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_home_personal" />
 
     <fragment
         android:id="@+id/nav_bitacora"
         android:name="com.example.horza_one.ui_Personal.Bitacora.Bitacora_Fragment"
-        android:label="Bitacora"
+        android:label=""
         tools:layout="@layout/fragment_bitacora_personal" />
     <fragment
         android:id="@+id/nav_horario"
         android:name="com.example.horza_one.ui_Personal.Horario.Horario_Fragment"
-        android:label="Horario"
+        android:label=""
         tools:layout="@layout/fragment_horario_personal" />
     <fragment
         android:id="@+id/nav_ev_per"
         android:name="com.example.horza_one.ui_Personal.Ev_Personal.Ev_Personal_Fragment"
-        android:label="Evaluación Personal"
+        android:label=""
         tools:layout="@layout/fragment_ev_per_personal" />
     <fragment
         android:id="@+id/nav_con_per"
         android:name="com.example.horza_one.ui_Personal.C_Per.C_Per_Fragment"
-        android:label="Configuración Perfil"
+        android:label=""
         tools:layout="@layout/fragment_config_per_personal" />
 
 

@@ -19,15 +19,9 @@ import com.example.horza_one.databinding.FragmentBitacoraPersonalBinding;
 import com.example.horza_one.ui_Personal.Bitacora.Bitacora_ViewModel;
 
 public class Bitacora_Fragment extends Fragment implements View.OnClickListener {
-    ImageView regresar;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-
-        regresar = view.findViewById(R.id.Regresa);
-        regresar.setOnClickListener(this);
 
     }
 
@@ -40,8 +34,5 @@ public class Bitacora_Fragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.Regresa) {
-            Navigation.findNavController(view).navigate(R.id.nav_home);
-        }
     }
 }

@@ -30,12 +30,12 @@ public class PanelPersonal extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarPanelPersonal.toolbar);
-        binding.appBarPanelPersonal.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarPanelPersonal.toolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show();
+                        .setAnchorView(R.id.toolbar).show();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -46,7 +46,8 @@ public class PanelPersonal extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_bitacora, R.id.nav_horario, R.id.nav_ev_per, R.id.nav_con_per)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_panel_personal);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment_content_panel_personal);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
@@ -73,7 +74,8 @@ public class PanelPersonal extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_panel_personal);
+        NavController navController = Navigation.findNavController(this,
+                R.id.nav_host_fragment_content_panel_personal);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
