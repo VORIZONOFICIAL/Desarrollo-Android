@@ -52,6 +52,9 @@ public class Ajustes_Fragment  extends Fragment implements View.OnClickListener 
             Navigation.findNavController(view).navigate(R.id.ajustes_Roles_Permisos2);
         }else if (view.getId() == R.id.cardAreas) {
             Navigation.findNavController(view).navigate(R.id.ajustes_Administracion_Areas);
+        }else if (view.getId() == R.id.cardHorario){
+            Navigation.findNavController(view).navigate(R.id.ajustes_G_H_C);
+
         }
     }
 }
