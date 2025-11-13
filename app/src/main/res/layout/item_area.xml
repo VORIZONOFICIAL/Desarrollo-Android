@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp">
+
+        <!-- Icono del Área -->
+        <ImageView
+            android:id="@+id/iconAreaItem"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/degradado_naranja"
+            android:padding="10dp"
+            android:src="@drawable/ic_building"
+            android:tint="@color/text_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nombre del Área -->
+        <TextView
+            android:id="@+id/textNombreArea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/badgeEstado"
+            app:layout_constraintStart_toEndOf="@id/iconAreaItem"
+            app:layout_constraintTop_toTopOf="@id/iconAreaItem"
+            tools:text="Recursos Humanos" />
+
+        <!-- Badge de Estado (Activo/Inactivo) -->
+        <TextView
+            android:id="@+id/badgeEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_registro_verde"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
+            android:text="Activo"
+            android:textColor="@color/text_white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Ubicación -->
+        <LinearLayout
+            android:id="@+id/layoutUbicacion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconAreaItem"
+            app:layout_constraintTop_toBottomOf="@id/textNombreArea">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_location"
+       />
+
+            <TextView
+                android:id="@+id/textUbicacionArea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                tools:text="Edificio A, Piso 2" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconAreaItem" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/textDescripcionArea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="3"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Departamento encargado de la gestión del talento humano, reclutamiento, capacitación y desarrollo del personal." />
+
+        <!-- Botones de Acción -->
+        <LinearLayout
+            android:id="@+id/layoutAcciones"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDescripcionArea">
+
+            <!-- Botón Editar -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEditarArea"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/boton_principal_v2"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Editar"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEliminarArea"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/boton_eliminar"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="Eliminar"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
