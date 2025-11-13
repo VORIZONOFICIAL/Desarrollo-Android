@@ -14,13 +14,17 @@ import com.example.horza_one.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Fragment principal para la Gestión de Horario y Calendario
  * Contiene 3 tabs: Bloques, Horarios y Calendarios
+ * CON DATOS DE PRUEBA COMPLETOS
  */
 public class Ajustes_G_H_C extends Fragment {
-
-
 
     private TabLayout tabLayoutGestion;
     private ViewPager2 viewPagerGestion;

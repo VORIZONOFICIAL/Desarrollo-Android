@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_ajustes_to_ajustes_G_H_C"
             app:destination="@id/ajustes_G_H_C" />
+        <action
+            android:id="@+id/action_ajustes_to_cambio_Contrasena"
+            app:destination="@id/cambio_Contrasena" />
     </fragment>
     <fragment
         android:id="@+id/asis_Acc_CA_Fragment"
@@ -86,5 +89,9 @@
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_G_H_C"
         android:label=""
         tools:layout="@layout/fragment_ajustes__g__h__c" />
+    <fragment
+        android:id="@+id/cambio_Contrasena"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Cambio_Contrasena"
+        tools:layout="@layout/fragment_cambio__contrasena" />
 
 </navigation>
