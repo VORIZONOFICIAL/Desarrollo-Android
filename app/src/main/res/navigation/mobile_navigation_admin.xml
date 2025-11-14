@@ -14,7 +14,20 @@
         android:id="@+id/ges_per"
         android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
         android:label=""
-        tools:layout="@layout/fragment_ges_per_admin" />
+        tools:layout="@layout/fragment_ges_per_admin" >
+        <action
+            android:id="@+id/action_ges_per_to_consultas"
+            app:destination="@id/consultas" />
+        <action
+            android:id="@+id/action_ges_per_to_baja"
+            app:destination="@id/baja" />
+        <action
+            android:id="@+id/action_ges_per_to_modificaciones"
+            app:destination="@id/modificaciones" />
+        <action
+            android:id="@+id/action_ges_per_to_alta"
+            app:destination="@id/alta" />
+    </fragment>
 
     <fragment
         android:id="@+id/asis_acc"
@@ -93,5 +106,21 @@
         android:id="@+id/cambio_Contrasena"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Cambio_Contrasena"
         tools:layout="@layout/fragment_cambio__contrasena" />
+    <fragment
+        android:id="@+id/consultas"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Consultas"
+        tools:layout="@layout/fragment_consultas" />
+    <fragment
+        android:id="@+id/baja"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Baja"
+        tools:layout="@layout/fragment_baja" />
+    <fragment
+        android:id="@+id/modificaciones"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Modificaciones"
+        tools:layout="@layout/fragment_modificaciones" />
+    <fragment
+        android:id="@+id/alta"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.alta"
+        tools:layout="@layout/fragment_alta" />
 
 </navigation>
