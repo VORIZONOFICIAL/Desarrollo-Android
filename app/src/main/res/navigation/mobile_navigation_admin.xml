@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/Home_Fragment"
-        android:name="com.example.horza_one.ui_Admin.Home.Home_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Home.Home_Fragment"
         android:label=""
         tools:layout="@layout/fragment_home_admin" />
     <fragment
         android:id="@+id/ges_per"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Ges_Per.Ges_Per_Fragment"
         android:label=""
         tools:layout="@layout/fragment_ges_per_admin" >
         <action
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/asis_acc"
-        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label=""
         tools:layout="@layout/fragment_asis_acc_admin" >
         <action
@@ -44,7 +44,7 @@
 
     <fragment
         android:id="@+id/Rep_Est_Fragment"
-        android:name="com.example.horza_one.ui_Admin.Rep_Est.Rep_Est_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Rep_Est.Rep_Est_Fragment"
         android:label=""
         tools:layout="@layout/fragment_ren_est_admin">
         <action
@@ -55,13 +55,13 @@
 
     <fragment
         android:id="@+id/ctrl_emer"
-        android:name="com.example.horza_one.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
         android:label=""
         tools:layout="@layout/fragment_ctrl_emer_admin" />
 
     <fragment
         android:id="@+id/ajustes"
-        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Ajustes.Ajustes_Fragment"
         android:label=""
         tools:layout="@layout/fragment_ajustes_admin" >
         <action
@@ -79,48 +79,48 @@
     </fragment>
     <fragment
         android:id="@+id/asis_Acc_CA_Fragment"
-        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment"
         android:label=""
         tools:layout="@layout/fragment_asis__acc__c_a_" />
     <fragment
         android:id="@+id/asis_Acc_Hist_Fragment"
-        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Hist_Fragment"
+        android:name="com.example.horza_one.ui.ui_Admin.Asis_Acc.Asis_Acc_Hist_Fragment"
         android:label=""
         tools:layout="@layout/fragment_asis__acc__hist_" />
     <fragment
         android:id="@+id/ajustes_Roles_Permisos2"
-        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Roles_Permisos"
+        android:name="com.example.horza_one.ui.ui_Admin.Ajustes.Ajustes_Roles_Permisos"
         android:label=""
         tools:layout="@layout/fragment_ajustes__roles__permisos" />
     <fragment
         android:id="@+id/ajustes_Administracion_Areas"
-        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Administracion_Areas"
+        android:name="com.example.horza_one.ui.ui_Admin.Ajustes.Ajustes_Administracion_Areas"
         android:label=""
         tools:layout="@layout/fragment_ajustes__administracion__areas" />
     <fragment
         android:id="@+id/ajustes_G_H_C"
-        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_G_H_C"
+        android:name="com.example.horza_one.ui.ui_Admin.Ajustes.Ajustes_G_H_C"
         android:label=""
         tools:layout="@layout/fragment_ajustes__g__h__c" />
     <fragment
         android:id="@+id/cambio_Contrasena"
-        android:name="com.example.horza_one.ui_Admin.Ajustes.Cambio_Contrasena"
+        android:name="com.example.horza_one.ui.ui_Admin.Ajustes.Cambio_Contrasena"
         tools:layout="@layout/fragment_cambio__contrasena" />
     <fragment
         android:id="@+id/consultas"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.Consultas"
+        android:name="com.example.horza_one.ui.ui_Admin.Ges_Per.Consultas"
         tools:layout="@layout/fragment_consultas" />
     <fragment
         android:id="@+id/baja"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.Baja"
+        android:name="com.example.horza_one.ui.ui_Admin.Ges_Per.Baja"
         tools:layout="@layout/fragment_baja" />
     <fragment
         android:id="@+id/modificaciones"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.Modificaciones"
+        android:name="com.example.horza_one.ui.ui_Admin.Ges_Per.Modificaciones"
         tools:layout="@layout/fragment_modificaciones" />
     <fragment
         android:id="@+id/alta"
-        android:name="com.example.horza_one.ui_Admin.Ges_Per.alta"
+        android:name="com.example.horza_one.ui.ui_Admin.Ges_Per.alta"
         tools:layout="@layout/fragment_alta" />
 
 </navigation>

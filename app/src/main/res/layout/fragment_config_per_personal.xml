@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui_Personal.C_Per.C_Per_Fragment">
+    tools:context=".ui.ui_Personal.C_Per.C_Per_Fragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"

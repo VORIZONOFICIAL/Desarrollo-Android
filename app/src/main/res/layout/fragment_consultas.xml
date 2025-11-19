@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light"
-    tools:context=".ui_Admin.Ges_Per.Consultas">
+    tools:context=".ui.ui_Admin.Ges_Per.Consultas">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarConsultas"

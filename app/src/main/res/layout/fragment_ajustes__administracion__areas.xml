@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="@color/background_light"
-    tools:context=".ui_Admin.Ajustes.Ajustes_Administracion_Areas">
+    tools:context=".ui.ui_Admin.Ajustes.Ajustes_Administracion_Areas">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

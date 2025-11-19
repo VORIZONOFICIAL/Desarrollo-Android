@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_light"
     android:fillViewport="true"
-    tools:context=".ui_Admin.Ajustes.Cambio_Contrasena">
+    tools:context=".ui.ui_Admin.Ajustes.Cambio_Contrasena">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

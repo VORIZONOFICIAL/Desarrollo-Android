@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:background="#FFF9FF"
-    tools:context=".ui_Personal.Ev_Personal.Ev_Personal_Fragment">
+    tools:context=".ui.ui_Personal.Ev_Personal.Ev_Personal_Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
-                <com.example.horza_one.ui_Personal.Ev_Personal.SemiCirculo
+                <com.example.horza_one.ui.ui_Personal.Ev_Personal.SemiCirculo
                     android:id="@+id/gaugeView"
                     android:layout_width="180dp"
                     android:layout_height="90dp"

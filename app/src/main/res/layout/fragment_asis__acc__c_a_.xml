@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background_light"
     android:fillViewport="true"
-    tools:context=".ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment">
+    tools:context=".ui.ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

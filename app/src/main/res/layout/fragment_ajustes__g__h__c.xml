@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_light"
-    tools:context=".ui_Admin.Ajustes.Ajustes_G_H_C">
+    tools:context=".ui.ui_Admin.Ajustes.Ajustes_G_H_C">
 
         <!-- Encabezado con gradiente NARANJA -->
         <com.google.android.material.appbar.AppBarLayout

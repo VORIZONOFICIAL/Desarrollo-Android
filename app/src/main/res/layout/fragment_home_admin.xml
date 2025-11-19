@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".ui_Admin.Home.Home_Fragment">
+    tools:context=".ui.ui_Admin.Home.Home_Fragment">
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
