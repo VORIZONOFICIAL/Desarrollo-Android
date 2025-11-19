@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -18,7 +19,8 @@ import com.example.horza_one.data.models.LoginResponse;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     FrameLayout FIS;
-    EditText nombre, curp, rfc, correo;
+    EditText nombre, matricula, contra;
+    Spinner rol;
     private HorzaRepository repository;
 
     @Override
@@ -27,12 +29,19 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
+        String cad[] = {"Seleccione Rol", "Administrador","Personal"};
+        ArrayAdapter adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_dropdown_item, cad);
+
         FIS = findViewById(R.id.frameis);
 
         nombre = findViewById(R.id.nombre);
-        curp = findViewById(R.id.curp);
-        rfc = findViewById(R.id.rfc);
-        correo = findViewById(R.id.correo);
+        matricula = findViewById(R.id.matricula);
+
+        rol = findViewById(R.id.spinrol);
+        rol.setAdapter(adapter);
+
+        contra = findViewById(R.id.contrasenia);
 
         FIS.setOnClickListener(this);
 
@@ -87,9 +96,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         "Bienvenido " + response.getUsuario().getNombre(),
                         Toast.LENGTH_SHORT).show();
 
+                if (rol.equals("Administrador")){
+                    Intent intent = new Intent(Login.this, PanelAdmin.class);
+                    startActivity(intent);
+                } else if (rol.equals("Personal")) {
+                     Intent intent = new Intent(Login.this, PanelPersonal.class);
+                    startActivity(intent);
+
+                }
                 // Navegar a la siguiente pantalla
-                Intent intent = new Intent(Login.this, Selec_rol.class);
-                startActivity(intent);
+
                 finish();
             }
 
@@ -104,7 +120,5 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 FIS.setEnabled(true);
             }
         });
-        Intent intento = new Intent(this, Selec_rol.class);
-        startActivity(intento);
     }
 }

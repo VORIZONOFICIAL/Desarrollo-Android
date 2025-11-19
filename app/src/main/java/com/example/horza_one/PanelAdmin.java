@@ -53,8 +53,8 @@ public class PanelAdmin extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.salir) {
-                Intent intent = new Intent(PanelAdmin.this, Selec_rol.class);
-                startActivity(intent);
+//                Intent intent = new Intent(PanelAdmin.this, Selec_rol.class);
+//                startActivity(intent);
                 finish();
                 return true;
             } else {

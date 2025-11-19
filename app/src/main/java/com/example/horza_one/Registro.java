@@ -123,9 +123,9 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                         Toast.LENGTH_SHORT).show();
 
                 // Navegar a login
-                Intent intent = new Intent(Registro.this, Selec_rol.class);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(Registro.this, Selec_rol.class);
+//                startActivity(intent);
+//                finish();
             }
 
             @Override
@@ -138,7 +138,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                 frameInSe.setEnabled(true);
             }
         });
-        Intent intento = new Intent(this, Selec_rol.class);
-        startActivity(intento);
+//        Intent intento = new Intent(this, Selec_rol.class);
+//        startActivity(intento);
     }
 }

@@ -54,8 +54,8 @@ public class PanelPersonal extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.salir) {
-                Intent intent = new Intent(PanelPersonal.this, Selec_rol.class);
-                startActivity(intent);
+//                Intent intent = new Intent(PanelPersonal.this, Selec_rol.class);
+//                startActivity(intent);
                 finish();
                 return true;
             } else {
