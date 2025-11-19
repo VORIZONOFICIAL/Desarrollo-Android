@@ -138,5 +138,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                 frameInSe.setEnabled(true);
             }
         });
+        Intent intento = new Intent(this, Selec_rol.class);
+        startActivity(intento);
     }
 }

@@ -36,7 +36,7 @@ public class Consultas extends Fragment {
         repository = new HorzaRepository();
 
         // Inicializar RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerViewUsuarios);
+        recyclerView = view.findViewById(R.id.recyclerResultados);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         listaUsuarios = new ArrayList<>();

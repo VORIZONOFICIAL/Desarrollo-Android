@@ -104,5 +104,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 FIS.setEnabled(true);
             }
         });
+        Intent intento = new Intent(this, Selec_rol.class);
+        startActivity(intento);
     }
 }

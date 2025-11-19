@@ -31,6 +31,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="text"
             android:hint="Nombre" />
 
         <EditText
@@ -39,6 +40,7 @@
             android:layout_height="40dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="text"
             android:layout_marginVertical="10dp"
             android:hint="Matricula"/>
 
@@ -56,6 +58,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="text"
             android:hint="Contraseña" />
 
         <EditText
@@ -65,6 +68,7 @@
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
             android:layout_marginVertical="10dp"
+            android:inputType="text"
             android:hint="RFC"/>
 
     </LinearLayout>
@@ -82,6 +86,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="text"
             android:hint="CURP" />
 
         <EditText
@@ -91,6 +96,7 @@
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
             android:layout_marginVertical="10dp"
+            android:inputType="text"
             android:hint="Área"/>
 
     </LinearLayout>
@@ -108,6 +114,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="number"
             android:hint="Telefono" />
 
         <EditText
@@ -117,6 +124,7 @@
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
             android:layout_marginVertical="10dp"
+            android:inputType="text"
             android:hint="Correo"/>
 
     </LinearLayout>
@@ -128,6 +136,7 @@
         android:background="@drawable/tarjeta_elevada"
         android:gravity="center"
         android:layout_marginVertical="10dp"
+        android:inputType="text"
         android:hint="Dirección"/>
 
     <Spinner
@@ -149,6 +158,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
+            android:inputType="text"
             android:hint="Tipo de Contrato" />
 
         <EditText
@@ -158,6 +168,7 @@
             android:background="@drawable/tarjeta_elevada"
             android:gravity="center"
             android:layout_marginVertical="10dp"
+            android:inputType="date"
             android:hint="Alta"/>
 
     </LinearLayout>
@@ -169,6 +180,7 @@
         android:background="@drawable/tarjeta_elevada"
         android:gravity="center"
         android:layout_marginVertical="10dp"
+        android:inputType="text"
         android:hint="Estado Laboral"/>
     <FrameLayout
         android:id="@+id/frameis"
