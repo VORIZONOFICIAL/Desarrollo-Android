@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void iniciarSesion() {
         String matricula = nombre.getText().toString().trim();
-        String contrasena = curp.getText().toString().trim();
+        String contrasena = contra.getText().toString().trim();
 
         // Validar campos
         if (matricula.isEmpty()) {
@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
 
         if (contrasena.isEmpty()) {
-            curp.setError("Ingrese su contraseña");
+            contra.setError("Ingrese su contraseña");
             return;
         }
 
