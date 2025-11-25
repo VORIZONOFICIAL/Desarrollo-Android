@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -27,6 +28,13 @@ public class PanelAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        String nombreActual = getIntent().getStringExtra("UsuarioActual");
+        String correoActual = getIntent().getStringExtra("CorreoActual");
+        String rolActual = getIntent().getStringExtra("RolActual");
+
+
+
+
         binding = ActivityPanelAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -39,8 +47,25 @@ public class PanelAdmin extends AppCompatActivity {
                         .setAnchorView(R.id.toolbar).show();
             }
         });
+
+
+
+
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        View header =navigationView.getHeaderView(0);
+        TextView txtNombreUsuario = header.findViewById(R.id.txtNombreUsuario);
+        TextView txtCorreo = header.findViewById(R.id.txtCorreo);
+        TextView txtRol = header.findViewById(R.id.txtRol);
+
+        txtRol.setText(rolActual);
+        txtNombreUsuario.setText(nombreActual);
+        txtCorreo.setText(correoActual);
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -54,7 +79,7 @@ public class PanelAdmin extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.salir) {
-                Intent intent = new Intent(PanelAdmin.this, Selec_rol.class);
+                Intent intent = new Intent(PanelAdmin.this, Login.class);
                 startActivity(intent);
                 finish();
                 return true;

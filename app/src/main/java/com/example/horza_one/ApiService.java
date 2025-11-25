@@ -1,6 +1,8 @@
 package com.example.horza_one;
 
 import com.example.horza_one.models.Area;
+import com.example.horza_one.models.LoginRequest;
+import com.example.horza_one.models.LoginResponse;
 import com.google.errorprone.annotations.Var;
 
 import org.checkerframework.checker.units.qual.A;
@@ -15,7 +17,8 @@ import retrofit2.http.PUT;
 
 public interface ApiService {
 
-    String BASE_URL = "http://10.0.2.2:8080/"; //modificar la direccion del host
+    String BASE_URL = "http://192.168.3.82:8080/";
+    //modificar la direccion del host
 
 //    Ejemplo
 //    Endpoints de Usuarios
@@ -31,6 +34,9 @@ public interface ApiService {
 //    @DELETE("api/usuarios/{id}")
 //    Call<Void> eliminarUsuario(@Path("id") Long id);
 
+    // Endpoint de Login
+    @POST("/api/auth/login")
+    Call<LoginResponse> login(@Body LoginRequest loginRequest);
 
     //Aplicar lo del CRUD a cada modelo
     //Endpint Area
