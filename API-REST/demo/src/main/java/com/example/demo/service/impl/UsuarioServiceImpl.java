@@ -2,9 +2,14 @@ package com.example.demo.service.impl;
 
 import com.example.demo.dto.CambioContrasenaRequest;
 import com.example.demo.dto.UsuarioDTO;
+import com.example.demo.model.Calendario;
 import com.example.demo.model.Rol;
 import com.example.demo.model.Usuario;
+import com.example.demo.model.UsuarioCalendario;
+import com.example.demo.model.UsuarioCalendarioId;
+import com.example.demo.respository.CalendarioRepository;
 import com.example.demo.respository.RolRepository;
+import com.example.demo.respository.UsuarioCalendarioRepository;
 import com.example.demo.respository.UsuarioRepository;
 import com.example.demo.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +22,15 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-    
+
     @Autowired
     private RolRepository rolRepository;
+    
+    @Autowired
+    private CalendarioRepository calendarioRepository;
+    
+    @Autowired
+    private UsuarioCalendarioRepository usuarioCalendarioRepository;
 
     @Override
     public List<UsuarioDTO> obtenerTodos() {
@@ -37,8 +48,29 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UsuarioDTO crear(UsuarioDTO usuarioDTO) {
+        // Validar que la matrícula no exista
+        if (usuarioRepository.existsById(usuarioDTO.getMatricula())) {
+            throw new RuntimeException("La matrícula " + usuarioDTO.getMatricula() + " ya existe en el sistema");
+        }
+        
+        // Crear el usuario
         Usuario usuario = convertirAEntidad(usuarioDTO);
         Usuario usuarioGuardado = usuarioRepository.save(usuario);
+        
+        // Si viene idCalendario, crear la relación en USUARIOS_CALENDARIO
+        if (usuarioDTO.getIdCalendario() != null) {
+            Calendario calendario = calendarioRepository.findById(usuarioDTO.getIdCalendario())
+                    .orElseThrow(() -> new RuntimeException("Calendario no encontrado con ID: " + usuarioDTO.getIdCalendario()));
+            
+            UsuarioCalendarioId ucId = new UsuarioCalendarioId(usuarioGuardado.getMatricula(), calendario.getIdCalendario());
+            UsuarioCalendario usuarioCalendario = new UsuarioCalendario();
+            usuarioCalendario.setId(ucId);
+            usuarioCalendario.setUsuario(usuarioGuardado);
+            usuarioCalendario.setCalendario(calendario);
+            
+            usuarioCalendarioRepository.save(usuarioCalendario);
+        }
+        
         return convertirADTO(usuarioGuardado);
     }
 
@@ -46,10 +78,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     public UsuarioDTO actualizar(Integer matricula, UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioRepository.findById(matricula)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        
+
         Rol rol = rolRepository.findById(usuarioDTO.getIdRol())
                 .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
-        
+
         usuario.setRol(rol);
         usuario.setRfc(usuarioDTO.getRfc());
         usuario.setCurp(usuarioDTO.getCurp());
@@ -63,7 +95,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setActivo(usuarioDTO.getActivo());
         usuario.setCpUsuario(usuarioDTO.getCpUsuario());
         usuario.setCalleUsuario(usuarioDTO.getCalleUsuario());
-        
+
         Usuario usuarioActualizado = usuarioRepository.save(usuario);
         return convertirADTO(usuarioActualizado);
     }
@@ -77,11 +109,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     public boolean cambiarContrasena(CambioContrasenaRequest request) {
         Usuario usuario = usuarioRepository.findById(request.getMatricula())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        
+
         if (!usuario.getContrasena().equals(request.getContrasenaActual())) {
             return false;
         }
-        
+
         usuario.setContrasena(request.getContrasenaNueva());
         usuarioRepository.save(usuario);
         return true;
@@ -91,6 +123,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         return new UsuarioDTO(
                 usuario.getMatricula(),
                 usuario.getRol().getIdRol(),
+                null, // idCalendario - se puede obtener de USUARIOS_CALENDARIO si se necesita
                 usuario.getRfc(),
                 usuario.getCurp(),
                 usuario.getFechaAlta(),
@@ -110,7 +143,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     private Usuario convertirAEntidad(UsuarioDTO dto) {
         Rol rol = rolRepository.findById(dto.getIdRol())
                 .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
-        
+
         return new Usuario(
                 dto.getMatricula(),
                 rol,

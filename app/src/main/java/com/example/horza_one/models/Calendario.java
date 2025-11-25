@@ -1,13 +1,11 @@
 package com.example.horza_one.models;
 
-import java.time.LocalDate;
-
 public class Calendario {
 
     private Integer idCalendario;
     private String nombreCalendario;
-    private LocalDate fechaInicio;
-    private LocalDate fechaFin;
+    private String fechaInicio;
+    private String fechaFin;
     private String descripcion;
     private String activoCalendario;
 
@@ -16,8 +14,8 @@ public class Calendario {
     }
 
     // Constructor con todos los argumentos
-    public Calendario(Integer idCalendario, String nombreCalendario, LocalDate fechaInicio,
-                      LocalDate fechaFin, String descripcion, String activoCalendario) {
+    public Calendario(Integer idCalendario, String nombreCalendario, String fechaInicio,
+                      String fechaFin, String descripcion, String activoCalendario) {
         this.idCalendario = idCalendario;
         this.nombreCalendario = nombreCalendario;
         this.fechaInicio = fechaInicio;
@@ -44,19 +42,19 @@ public class Calendario {
         this.nombreCalendario = nombreCalendario;
     }
 
-    public LocalDate getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
     }
 

@@ -1,8 +1,12 @@
 package com.example.horza_one;
 
 import com.example.horza_one.models.Area;
+import com.example.horza_one.models.Calendario;
 import com.example.horza_one.models.LoginRequest;
 import com.example.horza_one.models.LoginResponse;
+import com.example.horza_one.models.Rol;
+import com.example.horza_one.models.Usuario;
+import com.example.horza_one.models.UsuarioRequest;
 import com.google.errorprone.annotations.Var;
 
 import org.checkerframework.checker.units.qual.A;
@@ -37,6 +41,22 @@ public interface ApiService {
     // Endpoint de Login
     @POST("/api/auth/login")
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
+
+    // Endpoints de Usuarios
+    @GET("/api/usuarios")
+    Call<List<Usuario>> obtenerUsuarios();
+
+    // Endpoints de Roles
+    @GET("/api/roles")
+    Call<List<Rol>> obtenerRoles();
+
+    // Endpoints de Calendarios
+    @GET("/api/calendarios")
+    Call<List<Calendario>> obtenerCalendarios();
+
+    // Endpoint POST para crear usuario
+    @POST("/api/usuarios")
+    Call<Usuario> crearUsuario(@Body UsuarioRequest usuarioRequest);
 
     //Aplicar lo del CRUD a cada modelo
     //Endpint Area

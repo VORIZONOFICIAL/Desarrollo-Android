@@ -10,10 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       >
+        android:layout_height="wrap_content">
 
-        <!-- ========== ENCABEZADO ========== -->
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarAlta"
             android:layout_width="0dp"
@@ -32,47 +30,53 @@
                 android:paddingEnd="24dp"
                 android:paddingBottom="28dp">
 
-                <!-- Icono principal -->
                 <ImageView
-                    android:id="@+id/iconAlta"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/iconBaja"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/degradado_an_btn"
+                    android:padding="8dp"
                     android:src="@drawable/baseline_assignment_ind_24"
                     android:tint="@color/text_white"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <!-- Título -->
-                <TextView
-                    android:id="@+id/textTituloAlta"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="ALTA DE PERSONAL"
-                    android:textColor="@color/text_white"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/iconAlta"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/iconBaja"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/iconAlta"
-                    app:layout_constraintTop_toTopOf="@id/iconAlta" />
+                    app:layout_constraintStart_toEndOf="@id/iconBaja"
+                    app:layout_constraintTop_toTopOf="@id/iconBaja">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.06"
+                        android:text="ALTA USUARIO NUEVO"
+                        android:textColor="@color/text_white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
-
         <!-- ========== FORMULARIO DE ALTA ========== -->
         <androidx.cardview.widget.CardView
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:id="@+id/cardFormularioAlta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/appbarAlta">
@@ -81,18 +85,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="24dp">
 
                 <!-- ========== SECCIÓN: MATRÍCULA ========== -->
-                <TextView
-                    android:id="@+id/textSeccionMatricula"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Matrícula"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_assignment_ind_24"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionMatricula"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="IDENTIFICACIÓN"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- PK Matrícula -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -100,12 +125,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Matrícula del empleado"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/baseline_account_circle_24"
                     app:startIconTint="@color/accent_blue">
 
@@ -122,16 +148,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: INFORMACIÓN PERSONAL ========== -->
-                <TextView
-                    android:id="@+id/textSeccionPersonal"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Información Personal"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_user"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionPersonal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="INFORMACIÓN PERSONAL"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Nombre -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -139,12 +186,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Nombre(s)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_user"
                     app:startIconTint="@color/accent_blue">
 
@@ -166,12 +214,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Apellido Paterno"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_user"
                     app:startIconTint="@color/accent_blue">
 
@@ -193,12 +242,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Apellido Materno (Opcional)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_user"
                     app:startIconTint="@color/accent_blue">
 
@@ -220,12 +270,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Fecha de Alta"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:endIconDrawable="@drawable/ic_calendar"
                     app:endIconMode="custom"
                     app:endIconTint="@color/accent_blue"
@@ -246,16 +297,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: IDENTIFICACIÓN OFICIAL ========== -->
-                <TextView
-                    android:id="@+id/textSeccionIdentificacion"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Identificación Oficial"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_assignment_24"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionIdentificacion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="IDENTIFICACIÓN OFICIAL"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- RFC -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -263,12 +335,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="RFC (13 caracteres)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/baseline_assignment_24"
                     app:startIconTint="@color/accent_blue">
 
@@ -290,12 +363,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="CURP (18 caracteres)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/baseline_assignment_24"
                     app:startIconTint="@color/accent_blue">
 
@@ -312,16 +386,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: INFORMACIÓN DE CONTACTO ========== -->
-                <TextView
-                    android:id="@+id/textSeccionContacto"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Información de Contacto"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_user"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionContacto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="INFORMACIÓN DE CONTACTO"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Teléfono -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -329,12 +424,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Teléfono (10 dígitos)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:prefixText="+52 "
                     app:startIconDrawable="@drawable/ic_user"
                     app:startIconTint="@color/accent_blue">
@@ -357,12 +453,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Correo Electrónico"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_user"
                     app:startIconTint="@color/accent_blue">
 
@@ -379,16 +476,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: DIRECCIÓN ========== -->
-                <TextView
-                    android:id="@+id/textSeccionDireccion"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Dirección"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_location"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionDireccion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="DIRECCIÓN"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Calle -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -396,12 +514,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Calle y Número"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_location"
                     app:startIconTint="@color/accent_blue">
 
@@ -423,12 +542,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Código Postal (5 dígitos)"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/ic_location"
                     app:startIconTint="@color/accent_blue">
 
@@ -445,16 +565,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: INFORMACIÓN LABORAL ========== -->
-                <TextView
-                    android:id="@+id/textSeccionLaboral"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Información Laboral"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_assignment_24"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionLaboral"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="INFORMACIÓN LABORAL"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Tipo de Contrato -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -462,12 +603,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:hint="Tipo de Contrato"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/baseline_assignment_24"
                     app:startIconTint="@color/accent_blue">
 
@@ -489,12 +631,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Nombre de Usuario"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:startIconDrawable="@drawable/baseline_account_circle_24"
                     app:startIconTint="@color/accent_blue">
 
@@ -516,12 +659,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:hint="Contraseña"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeWidth="2dp"
                     app:endIconMode="password_toggle"
                     app:startIconDrawable="@drawable/baseline_account_circle_24"
                     app:startIconTint="@color/accent_blue">
@@ -539,27 +683,49 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ========== SECCIÓN: ROL Y CALENDARIO ========== -->
-                <TextView
-                    android:id="@+id/textSeccionAsignaciones"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Asignaciones"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_diversity_3_24"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionAsignaciones"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="ASIGNACIONES"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Botón Asignar Rol -->
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAsignarRol"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/boton_secundario"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/boton_secundario_v2"
                     android:drawableStart="@drawable/baseline_diversity_3_24"
                     android:drawablePadding="12dp"
                     android:drawableTint="@color/text_primary"
+                    android:elevation="4dp"
                     android:fontFamily="sans-serif-black"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -574,13 +740,13 @@
                     android:id="@+id/textRolSeleccionado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/entrada_texto"
                     android:drawableStart="@drawable/baseline_diversity_3_24"
                     android:drawablePadding="12dp"
                     android:drawableTint="@color/success_green"
                     android:fontFamily="sans-serif-medium"
-                    android:padding="14dp"
+                    android:padding="16dp"
                     android:text="Ningún rol asignado"
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp"
@@ -590,12 +756,13 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnAsignarCalendario"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/boton_secundario"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/boton_secundario_v2"
                     android:drawableStart="@drawable/ic_calendar"
                     android:drawablePadding="12dp"
                     android:drawableTint="@color/text_primary"
+                    android:elevation="4dp"
                     android:fontFamily="sans-serif-black"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
@@ -610,40 +777,61 @@
                     android:id="@+id/textCalendarioSeleccionado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/entrada_texto"
                     android:drawableStart="@drawable/ic_calendar"
                     android:drawablePadding="12dp"
                     android:drawableTint="@color/success_green"
                     android:fontFamily="sans-serif-medium"
-                    android:padding="14dp"
+                    android:padding="16dp"
                     android:text="Ningún calendario asignado"
                     android:textColor="@color/text_secondary"
                     android:textSize="14sp"
                     android:visibility="visible" />
 
                 <!-- ========== SECCIÓN: ESTADO DEL EMPLEADO ========== -->
-                <TextView
-                    android:id="@+id/textSeccionEstado"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-black"
-                    android:text="Estado del Empleado"
-                    android:textColor="@color/primary_orange"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="28dp"
+                    android:background="@drawable/pill_blue"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/baseline_assignment_ind_24"
+                        android:tint="@color/text_white" />
+
+                    <TextView
+                        android:id="@+id/textSeccionEstado"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.05"
+                        android:text="ESTADO DEL EMPLEADO"
+                        android:textColor="@color/text_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <!-- Switch Estado Activo -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/tarjeta"
-                    android:elevation="2dp"
+                    android:elevation="4dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="18dp">
 
                     <ImageView
                         android:id="@+id/iconEstadoActivo"
@@ -696,8 +884,10 @@
             android:id="@+id/layoutBotonesAlta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="32dp"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -709,10 +899,11 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCancelarAlta"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginEnd="8dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/boton_secundario"
+                android:background="@drawable/boton_secundario_v2"
+                android:elevation="6dp"
                 android:fontFamily="sans-serif-black"
                 android:text="Cancelar"
                 android:textAllCaps="false"
@@ -724,10 +915,11 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRegistrarAlta"
                 android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="8dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/boton_principal"
+                android:background="@drawable/boton_principal_v2"
+                android:elevation="6dp"
                 android:fontFamily="sans-serif-black"
                 android:text="Registrar Personal"
                 android:textAllCaps="false"

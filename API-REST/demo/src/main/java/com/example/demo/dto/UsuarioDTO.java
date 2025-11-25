@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class UsuarioDTO {
     private Integer matricula;
     private Integer idRol;
+    private Integer idCalendario; // ID del calendario asignado
     private String rfc;
     private String curp;
     private LocalDate fechaAlta;
@@ -24,9 +25,10 @@ public class UsuarioDTO {
     }
 
     // Constructor con todos los argumentos
-    public UsuarioDTO(Integer matricula, Integer idRol, String rfc, String curp, LocalDate fechaAlta, String nombreUsuario, String apellidoPaternoUsuario, String apellidoMaternoUsuario, String telefono, String tipoContrato, String correo, String activo, String cpUsuario, String calleUsuario, String contrasena) {
+    public UsuarioDTO(Integer matricula, Integer idRol, Integer idCalendario, String rfc, String curp, LocalDate fechaAlta, String nombreUsuario, String apellidoPaternoUsuario, String apellidoMaternoUsuario, String telefono, String tipoContrato, String correo, String activo, String cpUsuario, String calleUsuario, String contrasena) {
         this.matricula = matricula;
         this.idRol = idRol;
+        this.idCalendario = idCalendario;
         this.rfc = rfc;
         this.curp = curp;
         this.fechaAlta = fechaAlta;
@@ -57,6 +59,14 @@ public class UsuarioDTO {
 
     public void setIdRol(Integer idRol) {
         this.idRol = idRol;
+    }
+
+    public Integer getIdCalendario() {
+        return idCalendario;
+    }
+
+    public void setIdCalendario(Integer idCalendario) {
+        this.idCalendario = idCalendario;
     }
 
     public String getRfc() {

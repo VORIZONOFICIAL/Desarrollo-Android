@@ -1,37 +1,61 @@
 package com.example.horza_one.models;
 
-public class Usuario {
+import com.google.gson.annotations.SerializedName;
+
+public class UsuarioRequest {
     private Integer matricula;
+    
+    @SerializedName("idRol")
     private Integer idRol;
+    
+    @SerializedName("idCalendario")
     private Integer idCalendario;
-    private String nombreRol;
+    
     private String rfc;
     private String curp;
+    
+    @SerializedName("fechaAlta")
     private String fechaAlta; // formato yyyy-MM-dd
+    
+    @SerializedName("nombreUsuario")
     private String nombreUsuario;
+    
+    @SerializedName("apellidoPaternoUsuario")
     private String apellidoPaternoUsuario;
+    
+    @SerializedName("apellidoMaternoUsuario")
     private String apellidoMaternoUsuario;
+    
     private String telefono;
+    
+    @SerializedName("tipoContrato")
     private String tipoContrato;
+    
     private String correo;
-    private String activo;
+    private String activo; // "Activo" o "Inactivo"
+    
+    @SerializedName("cpUsuario")
     private String cpUsuario;
+    
+    @SerializedName("calleUsuario")
     private String calleUsuario;
-    private String contrasena;
+    
+    @SerializedName("contrasena")
+    private String contrasenia; // Backend espera "contrasena" en JSON
 
-    // Constructor sin argumentos
-    public Usuario() {
+    // Constructor vacío
+    public UsuarioRequest() {
     }
 
-    // Constructor con todos los argumentos
-    public Usuario(Integer matricula, Integer idRol, Integer idCalendario, String nombreRol, String rfc, String curp, String fechaAlta,
-                   String nombreUsuario, String apellidoPaternoUsuario, String apellidoMaternoUsuario,
-                   String telefono, String tipoContrato, String correo, String activo,
-                   String cpUsuario, String calleUsuario, String contrasena) {
+    // Constructor completo
+    public UsuarioRequest(Integer matricula, Integer idRol, Integer idCalendario, String rfc, String curp, 
+                         String fechaAlta, String nombreUsuario, String apellidoPaternoUsuario, 
+                         String apellidoMaternoUsuario, String telefono, String tipoContrato, 
+                         String correo, String activo, String cpUsuario, String calleUsuario, 
+                         String contrasenia) {
         this.matricula = matricula;
         this.idRol = idRol;
         this.idCalendario = idCalendario;
-        this.nombreRol = nombreRol;
         this.rfc = rfc;
         this.curp = curp;
         this.fechaAlta = fechaAlta;
@@ -44,11 +68,10 @@ public class Usuario {
         this.activo = activo;
         this.cpUsuario = cpUsuario;
         this.calleUsuario = calleUsuario;
-        this.contrasena = contrasena;
+        this.contrasenia = contrasenia;
     }
 
     // Getters y Setters
-
     public Integer getMatricula() {
         return matricula;
     }
@@ -65,12 +88,12 @@ public class Usuario {
         this.idRol = idRol;
     }
 
-    public String getNombreRol() {
-        return nombreRol;
+    public Integer getIdCalendario() {
+        return idCalendario;
     }
 
-    public void setNombreRol(String nombreRol) {
-        this.nombreRol = nombreRol;
+    public void setIdCalendario(Integer idCalendario) {
+        this.idCalendario = idCalendario;
     }
 
     public String getRfc() {
@@ -95,14 +118,6 @@ public class Usuario {
 
     public void setFechaAlta(String fechaAlta) {
         this.fechaAlta = fechaAlta;
-    }
-
-    public Integer getIdCalendario() {
-        return idCalendario;
-    }
-
-    public void setIdCalendario(Integer idCalendario) {
-        this.idCalendario = idCalendario;
     }
 
     public String getNombreUsuario() {
@@ -177,11 +192,11 @@ public class Usuario {
         this.calleUsuario = calleUsuario;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 }
