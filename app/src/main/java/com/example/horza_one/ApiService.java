@@ -21,7 +21,10 @@ import retrofit2.http.PUT;
 
 public interface ApiService {
 
-    String BASE_URL = "http://192.168.3.82:8080/";
+    //MIKEL
+    //String BASE_URL = "http://192.168.3.82:8080/";
+    //GRECO
+    String BASE_URL = "http://192.168.1.71:8080/";
     //modificar la direccion del host
 
 //    Ejemplo

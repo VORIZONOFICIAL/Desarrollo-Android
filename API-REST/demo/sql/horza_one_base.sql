@@ -2,6 +2,8 @@
 -- ===============================================
 --  CREACIÓN DE BASE DE DATOS HORIZON_ONE
 -- ===============================================
+drop database if exists HORIZON_ONE;
+
 CREATE DATABASE IF NOT EXISTS HORIZON_ONE
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -160,6 +162,8 @@ CREATE TABLE USUARIOS_CALENDARIO (
 --  2.1. CREACION DE LOS ROLES PREDETERMINADOS POR EL SISTEMA
 -- ===============================================
 
+drop role if exists 'ROL_ADMIN';
+drop role if exists 'ROL_PERSONAL';
 
 CREATE ROLE 'ROL_ADMIN';
 CREATE ROLE 'ROL_PERSONAL';
