@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -19,12 +20,18 @@ import com.example.horza_one.databinding.ActivityPanelPersonalBinding;
 
 public class PanelPersonal extends AppCompatActivity {
 
+
+
+
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPanelPersonalBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    String nombreActual = getIntent().getStringExtra("UsuarioActual");
+    String correoActual = getIntent().getStringExtra("CorreoActual");
+    String rolActual = getIntent().getStringExtra("RolActual");
 
         binding = ActivityPanelPersonalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -42,6 +49,16 @@ public class PanelPersonal extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        View header =navigationView.getHeaderView(0);
+        TextView txtNombreUsuario = header.findViewById(R.id.txtNombreUsuario);
+        TextView txtCorreo = header.findViewById(R.id.txtCorreo);
+        TextView txtRol = header.findViewById(R.id.txtRol);
+
+        txtRol.setText(rolActual);
+        txtNombreUsuario.setText(nombreActual);
+        txtCorreo.setText(correoActual);
+
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_bitacora, R.id.nav_horario, R.id.nav_ev_per, R.id.nav_con_per)
                 .setOpenableLayout(drawer)
@@ -54,8 +71,13 @@ public class PanelPersonal extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.salir) {
+<<<<<<< HEAD
 //                Intent intent = new Intent(PanelPersonal.this, Selec_rol.class);
 //                startActivity(intent);
+=======
+                Intent intent = new Intent(PanelPersonal.this, Login.class);
+                startActivity(intent);
+>>>>>>> prueba
                 finish();
                 return true;
             } else {

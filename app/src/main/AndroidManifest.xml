@@ -14,8 +14,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HorzaOne"
+<<<<<<< HEAD
         tools:targetApi="31"
         android:usesCleartextTraffic="true">
+=======
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+>>>>>>> prueba
 
         <activity
             android:name=".Registro"
@@ -30,9 +35,6 @@
             android:exported="false"
             android:label="@string/title_activity_panel_admin"
             android:theme="@style/Theme.HorzaOne.NoActionBar" />
-        <activity
-            android:name=".Selec_rol"
-            android:exported="false" />
         <activity
             android:name=".Panel_selec"
             android:exported="false" />

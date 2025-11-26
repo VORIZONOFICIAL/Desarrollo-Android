@@ -32,10 +32,6 @@ public class Panel_selec extends AppCompatActivity implements View.OnClickListen
         if (v.getId() == R.id.frameinses){
             intento = new Intent(Panel_selec.this, Login.class);
             startActivity(intento);
-        } else
-            if (v.getId() == R.id.framer){
-                intento = new Intent(Panel_selec.this, Registro.class);
-                startActivity(intento);
-            }
+        }
     }
 }
