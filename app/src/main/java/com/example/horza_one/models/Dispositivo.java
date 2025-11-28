@@ -1,47 +1,42 @@
 package com.example.horza_one.models;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Dispositivo {
-    @SerializedName("idDispositivo")
     private Integer idDispositivo;
-
-    @SerializedName("nombreDispositivo")
+    private Area area;
     private String nombreDispositivo;
-
-    @SerializedName("descripcionDispositivo")
     private String descripcionDispositivo;
-
-    @SerializedName("activoDispositivo")
     private String activoDispositivo;
 
-    @SerializedName("idArea")
-    private Integer idArea;
-
-    @SerializedName("nombreArea")
-    private String nombreArea; // Campo adicional que vendrá del backend (JOIN)
-
-    @SerializedName("ubicacionArea")
-    private String ubicacionArea; // Ubicación heredada del área (JOIN)
-
-    // Constructors
+    // Constructor sin argumentos
     public Dispositivo() {
     }
 
-    public Dispositivo(String nombreDispositivo, String descripcionDispositivo, String activoDispositivo, Integer idArea) {
+    // Constructor con todos los argumentos
+    public Dispositivo(Integer idDispositivo, Area area, String nombreDispositivo,
+                       String descripcionDispositivo, String activoDispositivo) {
+        this.idDispositivo = idDispositivo;
+        this.area = area;
         this.nombreDispositivo = nombreDispositivo;
         this.descripcionDispositivo = descripcionDispositivo;
         this.activoDispositivo = activoDispositivo;
-        this.idArea = idArea;
     }
 
-    // Getters and Setters
+    // Getters y Setters
+
     public Integer getIdDispositivo() {
         return idDispositivo;
     }
 
     public void setIdDispositivo(Integer idDispositivo) {
         this.idDispositivo = idDispositivo;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public String getNombreDispositivo() {
@@ -66,29 +61,5 @@ public class Dispositivo {
 
     public void setActivoDispositivo(String activoDispositivo) {
         this.activoDispositivo = activoDispositivo;
-    }
-
-    public String getUbicacionArea() {
-        return ubicacionArea;
-    }
-
-    public void setUbicacionArea(String ubicacionArea) {
-        this.ubicacionArea = ubicacionArea;
-    }
-
-    public Integer getIdArea() {
-        return idArea;
-    }
-
-    public void setIdArea(Integer idArea) {
-        this.idArea = idArea;
-    }
-
-    public String getNombreArea() {
-        return nombreArea;
-    }
-
-    public void setNombreArea(String nombreArea) {
-        this.nombreArea = nombreArea;
     }
 }

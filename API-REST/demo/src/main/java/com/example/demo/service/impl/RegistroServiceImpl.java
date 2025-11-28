@@ -1,25 +1,15 @@
 package com.example.demo.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.demo.dto.ConsultaRegistrosRequest;
 import com.example.demo.dto.ConsultaRegistrosResponse;
 import com.example.demo.dto.RegistroDTO;
-import com.example.demo.model.Area;
-import com.example.demo.model.Bitacora;
-import com.example.demo.model.Dispositivo;
-import com.example.demo.model.Registro;
-import com.example.demo.model.Usuario;
-import com.example.demo.respository.AreaRepository;
-import com.example.demo.respository.BitacoraRepository;
-import com.example.demo.respository.DispositivoRepository;
-import com.example.demo.respository.RegistroRepository;
-import com.example.demo.respository.UsuarioRepository;
+import com.example.demo.model.*;
+import com.example.demo.respository.*;
 import com.example.demo.service.RegistroService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RegistroServiceImpl implements RegistroService {
@@ -144,14 +134,6 @@ public class RegistroServiceImpl implements RegistroService {
                 totalAnticipados,
                 registrosDTO
         );
-    }
-
-    @Override
-    public List<RegistroDTO> obtenerUltimos3PorDispositivo(Integer idDispositivo) {
-        List<Registro> registros = registroRepository.findTop3ByDispositivo_IdDispositivoOrderByFechaDescHoraDesc(idDispositivo);
-        return registros.stream()
-                .map(this::convertirADTO)
-                .collect(Collectors.toList());
     }
 
     private RegistroDTO convertirADTO(Registro registro) {

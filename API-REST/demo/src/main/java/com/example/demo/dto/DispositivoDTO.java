@@ -6,22 +6,18 @@ public class DispositivoDTO {
     private String nombreDispositivo;
     private String descripcionDispositivo;
     private String activoDispositivo;
-    private String nombreArea; // De la tabla AREA (JOIN)
-    private String ubicacionArea; // De la tabla AREA (JOIN)
 
     // Constructor sin argumentos
     public DispositivoDTO() {
     }
 
     // Constructor con todos los argumentos
-    public DispositivoDTO(Integer idDispositivo, Integer idArea, String nombreDispositivo, String descripcionDispositivo, String activoDispositivo, String nombreArea, String ubicacionArea) {
+    public DispositivoDTO(Integer idDispositivo, Integer idArea, String nombreDispositivo, String descripcionDispositivo, String activoDispositivo) {
         this.idDispositivo = idDispositivo;
         this.idArea = idArea;
         this.nombreDispositivo = nombreDispositivo;
         this.descripcionDispositivo = descripcionDispositivo;
         this.activoDispositivo = activoDispositivo;
-        this.nombreArea = nombreArea;
-        this.ubicacionArea = ubicacionArea;
     }
 
     // Getters y Setters
@@ -63,21 +59,5 @@ public class DispositivoDTO {
 
     public void setActivoDispositivo(String activoDispositivo) {
         this.activoDispositivo = activoDispositivo;
-    }
-
-    public String getNombreArea() {
-        return nombreArea;
-    }
-
-    public void setNombreArea(String nombreArea) {
-        this.nombreArea = nombreArea;
-    }
-
-    public String getUbicacionArea() {
-        return ubicacionArea;
-    }
-
-    public void setUbicacionArea(String ubicacionArea) {
-        this.ubicacionArea = ubicacionArea;
     }
 }

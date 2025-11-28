@@ -6,62 +6,26 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.horza_one.ApiService;
 import com.example.horza_one.R;
 import com.example.horza_one.databinding.FragmentAsisAccAdminBinding;
-import com.example.horza_one.adapters.RegistroAdapter;
-import com.example.horza_one.models.Dispositivo;
-import com.example.horza_one.models.EstadoDispositivoRequest;
-import com.example.horza_one.models.Registro;
-import com.example.horza_one.models.RegistroAccesoRequest;
-import com.example.horza_one.models.RegistroAccesoResponse;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import androidx.cardview.widget.CardView;
-import android.app.AlertDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class Asis_Acc_Fragment extends Fragment implements View.OnClickListener {
     private FragmentAsisAccAdminBinding binding;
     private LinearLayout consultarHistorialCard, cambiarArea;
     private TextView textTime, textDate;
-    private EditText editTextMatricula;
-    private Button buttonRegistrar;
-    private TextView textDispositivoActual, textAreaActual;
-    private RecyclerView recyclerViewRegistros;
-    private RegistroAdapter registroAdapter;
-    private LinearLayout layoutNoRegistros;
-    
-    private int dispositivoId;
-    private String dispositivoNombre;
-    private Dispositivo dispositivoActual;
-    private ApiService apiService;
 
     private Handler handler = new Handler();
     private SimpleDateFormat timeFormat;
@@ -81,19 +45,6 @@ public class Asis_Acc_Fragment extends Fragment implements View.OnClickListener 
 
         binding = FragmentAsisAccAdminBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        
-        // Inicializar Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ApiService.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        apiService = retrofit.create(ApiService.class);
-        
-        // Obtener información del dispositivo seleccionado
-        if (getArguments() != null) {
-            dispositivoId = getArguments().getInt("dispositivoId", -1);
-            dispositivoNombre = getArguments().getString("dispositivoNombre", "");
-        }
 
         Locale spanishLocale = new Locale("es", "ES");
         timeFormat = new SimpleDateFormat("HH:mm:ss", spanishLocale);
@@ -103,34 +54,9 @@ public class Asis_Acc_Fragment extends Fragment implements View.OnClickListener 
         textDate = binding.textDate;
         consultarHistorialCard = binding.buttonConsultarHistorial;
         cambiarArea = binding.buttonCambiarArea;
-        editTextMatricula = root.findViewById(R.id.editTextMatricula);
-        buttonRegistrar = root.findViewById(R.id.buttonRegistrar);
-        textDispositivoActual = root.findViewById(R.id.textDispositivoActual);
-        textAreaActual = root.findViewById(R.id.textAreaActual);
-        recyclerViewRegistros = root.findViewById(R.id.recyclerViewRegistros);
-        layoutNoRegistros = root.findViewById(R.id.layoutNoRegistros);
-        
-        // Configurar RecyclerView
-        recyclerViewRegistros.setLayoutManager(new LinearLayoutManager(getContext()));
-        registroAdapter = new RegistroAdapter(new java.util.ArrayList<>());
-        recyclerViewRegistros.setAdapter(registroAdapter);
-        
-        // Cargar información del dispositivo
-        if (dispositivoId != -1) {
-            cargarInformacionDispositivo();
-            cargarUltimos3Registros();
-        }
 
         consultarHistorialCard.setOnClickListener(this);
         cambiarArea.setOnClickListener(this);
-        
-        // Configurar listener del botón registrar
-        buttonRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrarAcceso();
-            }
-        });
 
         updateDateTime();
 
@@ -158,11 +84,7 @@ public class Asis_Acc_Fragment extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v.getId() == binding.buttonConsultarHistorial.getId()) {
-            // Pasar el dispositivoId al fragmento de historial
-            Bundle bundle = new Bundle();
-            bundle.putInt("dispositivoId", dispositivoId);
-            bundle.putString("dispositivoNombre", dispositivoNombre);
-            Navigation.findNavController(v).navigate(R.id.asis_Acc_Hist_Fragment, bundle);
+            Navigation.findNavController(v).navigate(R.id.asis_Acc_Hist_Fragment);
         } else if (v.getId() == binding.buttonCambiarArea.getId()) {
             Navigation.findNavController(v).navigate(R.id.asis_Acc_CA_Fragment);
         }
@@ -171,256 +93,6 @@ public class Asis_Acc_Fragment extends Fragment implements View.OnClickListener 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        
-        // Liberar el dispositivo al salir
-        if (dispositivoId != -1) {
-            liberarDispositivo();
-        }
-        
         binding = null;
-    }
-    
-    private void cargarInformacionDispositivo() {
-        apiService.obtenerDispositivoPorId(dispositivoId).enqueue(new Callback<Dispositivo>() {
-            @Override
-            public void onResponse(Call<Dispositivo> call, Response<Dispositivo> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    dispositivoActual = response.body();
-                    actualizarInfoDispositivo();
-                    // Activar el dispositivo automáticamente al entrar a la pestaña
-                    activarDispositivo();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Dispositivo> call, Throwable t) {
-                Toast.makeText(getContext(), "Error al cargar información del dispositivo", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-    
-    private void activarDispositivo() {
-        EstadoDispositivoRequest estadoRequest = new EstadoDispositivoRequest("Ocupado");
-        apiService.cambiarEstadoDispositivo(dispositivoId, estadoRequest).enqueue(new Callback<Dispositivo>() {
-            @Override
-            public void onResponse(Call<Dispositivo> call, Response<Dispositivo> response) {
-                if (response.isSuccessful()) {
-                    // Dispositivo activado correctamente
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Dispositivo> call, Throwable t) {
-                // Silencioso - no es crítico mostrar el error
-            }
-        });
-    }
-    
-    private void actualizarInfoDispositivo() {
-        if (dispositivoActual != null) {
-            textDispositivoActual.setText(dispositivoActual.getNombreDispositivo());
-            if (dispositivoActual.getNombreArea() != null) {
-                textAreaActual.setText(dispositivoActual.getNombreArea());
-            } else {
-                textAreaActual.setText("Área no asignada");
-            }
-        }
-    }
-    
-    private void liberarDispositivo() {
-        EstadoDispositivoRequest estadoRequest = new EstadoDispositivoRequest("Inactivo");
-        
-        apiService.cambiarEstadoDispositivo(dispositivoId, estadoRequest)
-                .enqueue(new Callback<Dispositivo>() {
-            @Override
-            public void onResponse(Call<Dispositivo> call, Response<Dispositivo> response) {
-                // Dispositivo liberado exitosamente
-            }
-
-            @Override
-            public void onFailure(Call<Dispositivo> call, Throwable t) {
-                // Error al liberar, pero no interrumpir el flujo
-            }
-        });
-    }
-    
-    private void registrarAcceso() {
-        String matriculaStr = editTextMatricula.getText().toString().trim();
-        
-        // Validar que la matrícula no esté vacía
-        if (matriculaStr.isEmpty()) {
-            Toast.makeText(getContext(), "Por favor ingrese la matrícula", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        
-        // Validar que sea un número válido
-        Integer matricula;
-        try {
-            matricula = Integer.parseInt(matriculaStr);
-        } catch (NumberFormatException e) {
-            Toast.makeText(getContext(), "La matrícula debe ser un número válido", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        
-        // Validar que el dispositivo esté seleccionado
-        if (dispositivoId == -1) {
-            Toast.makeText(getContext(), "Error: Dispositivo no seleccionado", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        
-        // Deshabilitar botón mientras se procesa
-        buttonRegistrar.setEnabled(false);
-        buttonRegistrar.setText("Registrando...");
-        
-        // Crear request de registro (tipo "Entrada" por defecto)
-        RegistroAccesoRequest request = new RegistroAccesoRequest(matricula, dispositivoId, "Entrada");
-        
-        // Llamar al API
-        apiService.registrarAcceso(request).enqueue(new Callback<RegistroAccesoResponse>() {
-            @Override
-            public void onResponse(Call<RegistroAccesoResponse> call, Response<RegistroAccesoResponse> response) {
-                // Habilitar botón nuevamente
-                buttonRegistrar.setEnabled(true);
-                buttonRegistrar.setText("Registrar");
-                
-                if (response.isSuccessful() && response.body() != null) {
-                    RegistroAccesoResponse resultado = response.body();
-                    
-                    if (resultado.isExito()) {
-                        // Registro exitoso - Mostrar diálogo personalizado
-                        mostrarDialogoRegistroExitoso(resultado);
-                        
-                        // Limpiar campo de matrícula
-                        editTextMatricula.setText("");
-                        
-                    } else {
-                        // Error en el registro
-                        Toast.makeText(getContext(), resultado.getMensaje(), Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    Toast.makeText(getContext(), "Error al procesar el registro", Toast.LENGTH_SHORT).show();
-                }
-            }
-            
-            @Override
-            public void onFailure(Call<RegistroAccesoResponse> call, Throwable t) {
-                // Habilitar botón nuevamente
-                buttonRegistrar.setEnabled(true);
-                buttonRegistrar.setText("Registrar");
-                
-                Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-    
-    private void cargarUltimos3Registros() {
-        Call<java.util.List<Registro>> call = apiService.obtenerUltimos3Registros(dispositivoId);
-        call.enqueue(new Callback<java.util.List<Registro>>() {
-            @Override
-            public void onResponse(Call<java.util.List<Registro>> call, Response<java.util.List<Registro>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    java.util.List<Registro> registros = response.body();
-                    registroAdapter.actualizarLista(registros);
-                    
-                    if (registros.isEmpty()) {
-                        recyclerViewRegistros.setVisibility(View.GONE);
-                        layoutNoRegistros.setVisibility(View.VISIBLE);
-                    } else {
-                        recyclerViewRegistros.setVisibility(View.VISIBLE);
-                        layoutNoRegistros.setVisibility(View.GONE);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<java.util.List<Registro>> call, Throwable t) {
-                recyclerViewRegistros.setVisibility(View.GONE);
-                layoutNoRegistros.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-    
-    private void mostrarDialogoRegistroExitoso(RegistroAccesoResponse resultado) {
-        View dialogView = getLayoutInflater().inflate(R.layout.dialog_registro_resultado, null);
-        
-        // Referencias
-        LinearLayout headerEstado = dialogView.findViewById(R.id.headerEstado);
-        android.widget.ImageView iconEstado = dialogView.findViewById(R.id.iconEstado);
-        TextView textEstadoTitulo = dialogView.findViewById(R.id.textEstadoTitulo);
-        TextView textSubtituloEstado = dialogView.findViewById(R.id.textSubtituloEstado);
-        TextView textMatricula = dialogView.findViewById(R.id.textMatricula);
-        TextView textHoraRegistro = dialogView.findViewById(R.id.textHoraRegistro);
-        TextView textFechaRegistro = dialogView.findViewById(R.id.textFechaRegistro);
-        CardView cardDiferenciaTiempo = dialogView.findViewById(R.id.cardDiferenciaTiempo);
-        TextView textDiferenciaTiempo = dialogView.findViewById(R.id.textDiferenciaTiempo);
-        TextView textTipoDiferencia = dialogView.findViewById(R.id.textTipoDiferencia);
-        TextView textMensaje = dialogView.findViewById(R.id.textMensaje);
-        Button buttonAceptar = dialogView.findViewById(R.id.buttonAceptar);
-        
-        String estado = resultado.getEstadoRegistro();
-        Integer minutosDiferencia = resultado.getMinutosDiferencia();
-        
-        // Configurar según el estado
-        if ("Puntual".equals(estado)) {
-            headerEstado.setBackgroundResource(R.drawable.fondo_encabezado_azul);
-            iconEstado.setImageResource(R.drawable.ic_check_circle);
-            textEstadoTitulo.setText("¡Puntual!");
-            textSubtituloEstado.setText("Entrada registrada a tiempo");
-            cardDiferenciaTiempo.setVisibility(View.GONE);
-        } else if ("Retardo".equals(estado)) {
-            headerEstado.setBackgroundColor(getResources().getColor(R.color.error_red));
-            iconEstado.setImageResource(R.drawable.ic_error_circle);
-            textEstadoTitulo.setText("Retardo");
-            textSubtituloEstado.setText("Entrada tardía registrada");
-            
-            if (minutosDiferencia != null && minutosDiferencia > 0) {
-                cardDiferenciaTiempo.setVisibility(View.VISIBLE);
-                textDiferenciaTiempo.setText(minutosDiferencia + " min");
-                textDiferenciaTiempo.setTextColor(getResources().getColor(R.color.error_red));
-                textTipoDiferencia.setText("de retardo");
-                textTipoDiferencia.setTextColor(getResources().getColor(R.color.error_red));
-            }
-        } else if ("Anticipado".equals(estado)) {
-            headerEstado.setBackgroundColor(getResources().getColor(R.color.success_green));
-            iconEstado.setImageResource(R.drawable.ic_check_circle);
-            textEstadoTitulo.setText("Anticipado");
-            textSubtituloEstado.setText("Entrada anticipada registrada");
-            
-            if (minutosDiferencia != null) {
-                cardDiferenciaTiempo.setVisibility(View.VISIBLE);
-                textDiferenciaTiempo.setText(Math.abs(minutosDiferencia) + " min");
-                textDiferenciaTiempo.setTextColor(getResources().getColor(R.color.success_green));
-                textTipoDiferencia.setText("de anticipación");
-                textTipoDiferencia.setTextColor(getResources().getColor(R.color.success_green));
-            }
-        }
-        
-        // Datos del registro
-        if (resultado.getRegistro() != null) {
-            textMatricula.setText("Matrícula: " + resultado.getRegistro().getMatricula());
-            textHoraRegistro.setText("Hora: " + resultado.getRegistro().getHora());
-            textFechaRegistro.setText("Fecha: " + resultado.getRegistro().getFecha());
-        }
-        
-        textMensaje.setText(resultado.getMensaje());
-        
-        // Crear diálogo
-        AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setView(dialogView)
-                .setCancelable(true)
-                .create();
-        
-        buttonAceptar.setOnClickListener(v -> {
-            dialog.dismiss();
-            editTextMatricula.setText("");
-            // Recargar los registros recientes
-            cargarUltimos3Registros();
-        });
-        
-        if (dialog.getWindow() != null) {
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }
-        
-        dialog.show();
     }
 }

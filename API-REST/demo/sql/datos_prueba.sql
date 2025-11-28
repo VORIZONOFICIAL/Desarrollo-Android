@@ -64,18 +64,16 @@ INSERT INTO bloques_horario (id_bloque, id_horario, id_area, nombre_bloque, hora
 (3, 1, 2, 'Bloque Mañana TI', '08:00:00', '12:00:00'),
 (4, 1, 2, 'Bloque Tarde TI', '12:00:00', '15:00:00'),
 (5, 2, 3, 'Bloque Tarde Finanzas', '14:00:00', '18:00:00'),
-(6, 2, 4, 'Bloque Noche Operaciones', '18:00:00', '21:00:00'),
-(8, 1, 3, 'Prueba', '15:10:00', '16:10:00'),
-(9, 1, 4, 'Prueba', '16:10:00', '19:10:00');
+(6, 2, 4, 'Bloque Noche Operaciones', '18:00:00', '21:00:00');
 
 -- ============================================
 -- 8. DISPOSITIVOS
 -- ============================================
 INSERT INTO dispositivo (id_dispositivo, id_area, nombre_dispositivo, descripcion_dispositivo, activo_dispositivo) VALUES
-(1, 1, 'Terminal RH Entrada', 'Lector biométrico entrada RH', 'Inactivo'),
-(2, 2, 'Terminal TI Principal', 'Lector biométrico área TI', 'Inactivo'),
-(3, 3, 'Terminal Finanzas', 'Lector de tarjeta magnética', 'Inactivo'),
-(4, 4, 'Terminal Operaciones', 'Lector biométrico y facial', 'Inactivo'),
+(1, 1, 'Terminal RH Entrada', 'Lector biométrico entrada RH', 'Activo'),
+(2, 2, 'Terminal TI Principal', 'Lector biométrico área TI', 'Activo'),
+(3, 3, 'Terminal Finanzas', 'Lector de tarjeta magnética', 'Activo'),
+(4, 4, 'Terminal Operaciones', 'Lector biométrico y facial', 'Activo'),
 (5, 5, 'Terminal Archivo', 'Dispositivo antiguo', 'Inactivo');
 
 -- ============================================
