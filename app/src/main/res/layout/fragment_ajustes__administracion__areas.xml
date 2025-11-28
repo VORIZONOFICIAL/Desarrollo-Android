@@ -353,7 +353,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/buscar"
-                android:tint="@color/primary_orange" />
+                app:tint="@color/primary_orange" />
 
             <EditText
                 android:id="@+id/editBuscarArea"
