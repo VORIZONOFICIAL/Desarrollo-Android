@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/background_light"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="3dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Avatar circular con inicial -->
+        <TextView
+            android:id="@+id/textAvatar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/pill_blue"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@color/text_white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Matrícula -->
+        <TextView
+            android:id="@+id/textMatricula"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="MAT-001"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/badgeEstado"
+            app:layout_constraintStart_toEndOf="@id/textAvatar"
+            app:layout_constraintTop_toTopOf="@id/textAvatar" />
+
+        <!-- Nombre completo -->
+        <TextView
+            android:id="@+id/textNombreCompleto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-black"
+            android:maxLines="1"
+            android:text="Juan Pérez López"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/badgeEstado"
+            app:layout_constraintStart_toEndOf="@id/textAvatar"
+            app:layout_constraintTop_toBottomOf="@id/textMatricula" />
+
+        <!-- Rol -->
+        <TextView
+            android:id="@+id/textRol"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:text="Administrador"
+            android:textColor="@color/accent_blue"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/badgeEstado"
+            app:layout_constraintStart_toEndOf="@id/textAvatar"
+            app:layout_constraintTop_toBottomOf="@id/textNombreCompleto" />
+
+        <!-- Badge de Estado Activo -->
+        <TextView
+            android:id="@+id/badgeEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/item_registro_verde"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:text="● Activo"
+            android:textColor="@color/text_white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Separador -->
+        <View
+            android:id="@+id/separador"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textAvatar" />
+
+        <!-- Sección de desempeño -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separador">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/baseline_compare_arrows_24"
+                app:tint="@color/primary_orange" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="sans-serif"
+                android:text="Desempeño:"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textPuntajeDesempeno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="sans-serif-black"
+                android:text="95%"
+                android:textColor="@color/success_green"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Botón Ver Detalles -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVerDetalles"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:background="@drawable/boton_principal_v2"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="Ver detalles"
+                android:textAllCaps="false"
+                android:textColor="@color/text_white"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

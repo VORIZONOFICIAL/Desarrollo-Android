@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/Home_Fragment">
+
+    <fragment
+        android:id="@+id/Home_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Home.Home_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_home_admin" />
+    <fragment
+        android:id="@+id/ges_per"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Ges_Per_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_ges_per_admin" >
+        <action
+            android:id="@+id/action_ges_per_to_consultas"
+            app:destination="@id/consultas" />
+        <action
+            android:id="@+id/action_ges_per_to_baja"
+            app:destination="@id/baja" />
+        <action
+            android:id="@+id/action_ges_per_to_modificaciones"
+            app:destination="@id/modificaciones" />
+        <action
+            android:id="@+id/action_ges_per_to_alta"
+            app:destination="@id/alta" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/asis_acc"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_asis_acc_admin" >
+        <action
+            android:id="@+id/action_asis_acc_to_asis_Acc_CA_Fragment"
+            app:destination="@id/asis_Acc_CA_Fragment" />
+        <action
+            android:id="@+id/action_asis_acc_to_asis_Acc_Hist_Fragment2"
+            app:destination="@id/asis_Acc_Hist_Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/Rep_Est_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Rep_Est.Rep_Est_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_ren_est_admin">
+        <action
+            android:id="@+id/action_repEst_to_home"
+            app:destination="@id/Home_Fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/ctrl_emer"
+        android:name="com.example.horza_one.ui_Admin.Ctrl_Emer.Crtl_Emer_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_ctrl_emer_admin" />
+
+    <fragment
+        android:id="@+id/ajustes"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_ajustes_admin" >
+        <action
+            android:id="@+id/action_ajustes_to_ajustes_Roles_Permisos2"
+            app:destination="@id/ajustes_Roles_Permisos2" />
+        <action
+            android:id="@+id/action_ajustes_to_ajustes_Administracion_Areas"
+            app:destination="@id/ajustes_Administracion_Areas" />
+        <action
+            android:id="@+id/action_ajustes_to_ajustes_G_H_C"
+            app:destination="@id/ajustes_G_H_C" />
+        <action
+            android:id="@+id/action_ajustes_to_cambio_Contrasena"
+            app:destination="@id/cambio_Contrasena" />
+    </fragment>
+    <fragment
+        android:id="@+id/asis_Acc_CA_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_CA_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_asis__acc__c_a_" />
+    <fragment
+        android:id="@+id/asis_Acc_Hist_Fragment"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Hist_Fragment"
+        android:label=""
+        tools:layout="@layout/fragment_asis__acc__hist_" />
+    <fragment
+        android:id="@+id/ajustes_Roles_Permisos2"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Roles_Permisos"
+        android:label=""
+        tools:layout="@layout/fragment_ajustes__roles__permisos" />
+    <fragment
+        android:id="@+id/ajustes_Administracion_Areas"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Administracion_Areas"
+        android:label=""
+        tools:layout="@layout/fragment_ajustes__administracion__areas" />
+    <fragment
+        android:id="@+id/ajustes_G_H_C"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_G_H_C"
+        android:label=""
+        tools:layout="@layout/fragment_ajustes__g__h__c" />
+    <fragment
+        android:id="@+id/cambio_Contrasena"
+        android:name="com.example.horza_one.ui_Admin.Ajustes.Cambio_Contrasena"
+        tools:layout="@layout/fragment_cambio__contrasena" />
+    <fragment
+        android:id="@+id/consultas"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Consultas"
+        tools:layout="@layout/fragment_consultas" />
+    <fragment
+        android:id="@+id/baja"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Baja"
+        tools:layout="@layout/fragment_baja" />
+    <fragment
+        android:id="@+id/modificaciones"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.Modificaciones"
+        tools:layout="@layout/fragment_modificaciones" />
+    <fragment
+        android:id="@+id/alta"
+        android:name="com.example.horza_one.ui_Admin.Ges_Per.alta"
+        tools:layout="@layout/fragment_alta" />
+
+</navigation>

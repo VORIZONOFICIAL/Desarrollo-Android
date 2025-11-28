@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:fillViewport="true"
+    tools:context=".ui_Admin.Ges_Per.Ges_Per_Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarGestionPersonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="28dp">
+
+                <!-- Icono principal -->
+                <ImageView
+                    android:id="@+id/iconGestionPersonal"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/boton_principal"
+                    android:padding="14dp"
+                    android:src="@drawable/baseline_diversity_3_24"
+                    android:tint="@color/text_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Título y estadísticas -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/iconGestionPersonal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iconGestionPersonal"
+                    app:layout_constraintTop_toTopOf="@id/iconGestionPersonal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:letterSpacing="0.06"
+                        android:text="GESTIÓN DE PERSONAL"
+                        android:textColor="@color/text_white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textTotalPersonalActivo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.9"
+                            android:fontFamily="sans-serif"
+                            android:text="0 activos"
+                            android:textColor="@color/text_white"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="14dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:alpha="0.6"
+                            android:background="@color/text_white" />
+
+                        <TextView
+                            android:id="@+id/textPromedioDesempeno"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:alpha="0.9"
+                            android:fontFamily="sans-serif"
+                            android:text="Promedio: 0%"
+                            android:textColor="@color/text_white"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- ========== BOTONES DE ACCIONES PRINCIPALES ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAccionesPrincipales"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="13dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbarGestionPersonal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.6"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.12"
+                    android:text="ACCIONES PRINCIPALES"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Grid de botones (2x2) -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:columnCount="2"
+                    android:rowCount="2"
+                    android:useDefaultMargins="true">
+
+                    <!-- Botón Agregar -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnAgregarPersonal"
+                        android:layout_width="0dp"
+                        android:layout_height="92dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/success_green"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="3dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_account_circle_24"
+                                app:tint="@color/text_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Agregar"
+                                android:textColor="@color/text_white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Botón Editar -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnEditarPersonal"
+                        android:layout_width="0dp"
+                        android:layout_height="92dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/accent_blue"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="3dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/iconedit"
+                                app:tint="@color/text_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Editar"
+                                android:textColor="@color/text_white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Botón Eliminar -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnEliminarPersonal"
+                        android:layout_width="0dp"
+                        android:layout_height="92dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/error_red"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="3dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/baseline_exit_to_app_24"
+                                app:tint="@color/text_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Eliminar"
+                                android:textColor="@color/text_white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Botón Consultas -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnConsultasPersonal"
+                        android:layout_width="0dp"
+                        android:layout_height="92dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardBackgroundColor="@color/primary_orange"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="3dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/buscar"
+                                app:tint="@color/text_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:text="Consultas"
+                                android:textColor="@color/text_white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </GridLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== GRÁFICA DE DESEMPEÑO GENERAL ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGraficaDesempeno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="13dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardAccionesPrincipales">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_compare_arrows_24"
+                        app:tint="@color/accent_blue" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Desempeño General"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Contenedor para la gráfica (se llenará dinámicamente) -->
+                <FrameLayout
+                    android:id="@+id/containerGrafica"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/entrada_texto">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:alpha="0.7"
+                        android:fontFamily="sans-serif"
+                        android:text="Gráfica de Desempeño\nEn desarrollo"
+                        android:textAlignment="center"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== TOP 5 MEJORES DESEMPEÑOS ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardTop5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="13dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardGraficaDesempeno">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_assignment_turned_in_24"
+                        app:tint="@color/primary_orange" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Top 5 Mejores Desempeños"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- RecyclerView para Top 5 -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTop5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/item_personal_top" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ========== LISTA COMPLETA DE PERSONAL ACTIVO ========== -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardListaPersonal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardTop5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_diversity_3_24"
+                        app:tint="@color/accent_blue" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Personal Activo"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <!-- Búsqueda (icono) -->
+                    <ImageView
+                        android:id="@+id/iconBuscar"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="4dp"
+                        android:src="@drawable/buscar"
+                        app:tint="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <!-- RecyclerView para lista completa de personal -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerPersonalActivo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="8"
+                    tools:listitem="@layout/item_personal" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

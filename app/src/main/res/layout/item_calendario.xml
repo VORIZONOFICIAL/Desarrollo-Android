@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp">
+
+        <!-- Icono del Calendario -->
+        <ImageView
+            android:id="@+id/iconCalendarioItem"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/pill_purple"
+            android:padding="10dp"
+            android:src="@drawable/ic_calendar"
+            android:tint="@color/text_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Nombre del Calendario -->
+        <TextView
+            android:id="@+id/textNombreCalendario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/text_primary"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/badgeEstadoCalendario"
+            app:layout_constraintStart_toEndOf="@id/iconCalendarioItem"
+            app:layout_constraintTop_toTopOf="@id/iconCalendarioItem"
+            tools:text="Calendario Enero 2025" />
+
+        <!-- Badge de Estado -->
+        <TextView
+            android:id="@+id/badgeEstadoCalendario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pill_blue"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="12dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="6dp"
+            android:text="Activo"
+            android:textColor="@color/text_white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Periodo -->
+        <LinearLayout
+            android:id="@+id/layoutPeriodo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconCalendarioItem"
+            app:layout_constraintTop_toBottomOf="@id/textNombreCalendario">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_calendar"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/textPeriodoCalendario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                tools:text="01/01/2025 - 31/01/2025" />
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconCalendarioItem" />
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/textDescripcionCalendario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="Calendario para el mes de enero con horarios especiales." />
+
+        <!-- Horario Asociado -->
+        <LinearLayout
+            android:id="@+id/layoutHorarioAsociado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/entrada_texto"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDescripcionCalendario">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/baseline_assignment_24"
+                app:tint="@color/accent_blue" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-medium"
+                android:text="Horario:"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/textHorarioAsociado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Horario Regular" />
+        </LinearLayout>
+
+        <!-- Botones de Acción -->
+        <LinearLayout
+            android:id="@+id/layoutAccionesCalendario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHorarioAsociado">
+
+            <!-- Botón Ver Detalles -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVerCalendario"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/boton_principal"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Ver"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Botón Editar -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEditarCalendario"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/boton_principal_v2"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Editar"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Botón Eliminar -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEliminarCalendario"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:background="@drawable/boton_eliminar"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:text="Eliminar"
+                android:textColor="@color/text_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

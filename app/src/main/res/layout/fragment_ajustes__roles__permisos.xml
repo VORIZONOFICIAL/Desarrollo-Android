@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    tools:context=".ui_Admin.Ajustes.Ajustes_Roles_Permisos">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Encabezado con gradiente NARANJA -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:elevation="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+
+                    <!-- Badge Gestión de Roles y Permisos - Debajo del logo -->
+                    <LinearLayout
+                        android:id="@+id/badgeRoles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/insignia"
+                        android:elevation="8dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp"
+                        android:paddingStart="16dp"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.01"
+                            android:text="Gestión de Roles y Permisos"
+                            android:textColor="@color/primary_orange"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Título: Asignación de Rol -->
+        <TextView
+            android:id="@+id/textTituloAsignacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.02"
+            android:text="Asignación de Rol"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar" />
+
+        <!-- Card: Datos de Usuario -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardDatosUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTituloAsignacion">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <!-- Campo Matrícula -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="MATRÍCULA:"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layoutMatricula"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/entrada_texto"
+                    android:gravity="center_vertical"
+                    android:minHeight="56dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp">
+
+                    <EditText
+                        android:id="@+id/editMatricula"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Ingrese matrícula"
+                        android:inputType="text"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- Campo Nombre -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="Nombre:"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layoutNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/entrada_texto"
+                    android:gravity="center_vertical"
+                    android:minHeight="56dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="18dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginEnd="12dp"
+                        android:src="@drawable/ic_user"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/textNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="XXXXXXX XXXXXX XXXXXXX"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- Selector de Rol -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.02"
+                    android:text="Asignar Rol:"
+                    android:textColor="@color/text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/layoutRol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/entrada_texto"
+                    android:gravity="center_vertical"
+                    android:minHeight="56dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="12dp">
+
+                    <Spinner
+                        android:id="@+id/spinnerRol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:dropDownWidth="match_parent"
+                        android:fontFamily="sans-serif-medium"
+                        android:minHeight="48dp"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Título: Permisos -->
+        <TextView
+            android:id="@+id/textTituloPermisos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.02"
+            android:text="Permisos"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardDatosUsuario" />
+
+        <!-- Card: Solicitudes -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSolicitudes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTituloPermisos">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boton_principal"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.03"
+                    android:text="Solicitudes"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:alpha="0.3"
+                    android:background="@color/text_white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/entrada_texto"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Entrada tardía: mm/dd/aaaa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Motivo: xxxxxxxxxxxxxxxxxxxxxxxx"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/divider" />
+
+                    <!-- Item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Entrada tardía: mm/dd/aaaa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Motivo: xxxxxxxxxxxxxxxxxxxxxxxx"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón Aprobar -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAprobar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/boton_principal"
+            android:elevation="6dp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.05"
+            android:text="Aprobar"
+            android:textColor="@color/text_white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardSolicitudes" />
+
+        <!-- Card: Historial -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardHistorial"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAprobar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boton_principal"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.03"
+                    android:text="Historial"
+                    android:textColor="@color/text_white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:alpha="0.3"
+                    android:background="@color/text_white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/entrada_texto"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Item 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Fecha justificada: mm/dd/aaaa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Motivo: xxxxxxxxxxxxxxxxxxxxxxxx"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/divider" />
+
+                    <!-- Item 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Fecha justificada: mm/dd/aaaa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Motivo: xxxxxxxxxxxxxxxxxxxxxxxx"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/divider" />
+
+                    <!-- Item 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Fecha justificada: mm/dd/aaaa"
+                            android:textColor="@color/text_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif"
+                            android:text="Motivo: xxxxxxxxxxxxxxxxxxxxxxxx"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

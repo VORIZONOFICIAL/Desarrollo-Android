@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="24dp">
+
+    <!-- Título: Crear Bloque de Horario -->
+    <TextView
+        android:id="@+id/textTituloBloque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.02"
+        android:text="Crear Bloque de Horario"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card: Datos del Bloque -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDatosBloque"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTituloBloque">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Nombre del Bloque -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Nombre del Bloque"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/entrada_texto"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_clock"
+                    app:tint="@color/primary_orange" />
+
+                <EditText
+                    android:id="@+id/editNombreBloque"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="sans-serif"
+                    android:hint="Ej: Turno Matutino"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- Selector de Área -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Área Asignada"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/entrada_texto"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="14dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="10dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_building"
+                    app:tint="@color/primary_orange" />
+
+                <Spinner
+                    android:id="@+id/spinnerArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:minHeight="32dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <!-- Hora de Inicio y Fin -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Horario"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Hora Inicio -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/entrada_texto"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/success_green" />
+
+                    <TextView
+                        android:id="@+id/textHoraInicio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Inicio"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- Hora Fin -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/entrada_texto"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/error_red" />
+
+                    <TextView
+                        android:id="@+id/textHoraFin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:hint="Fin"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Botón Crear Bloque -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCrearBloque"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/boton_principal"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.05"
+        android:text="Crear Bloque"
+        android:textColor="@color/text_white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardDatosBloque" />
+
+    <!-- Título: Bloques Creados -->
+    <TextView
+        android:id="@+id/textTituloBloquesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.02"
+        android:text="Bloques Creados"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCrearBloque" />
+
+    <!-- RecyclerView Bloques -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewBloques"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTituloBloquesList"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_bloque_horario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

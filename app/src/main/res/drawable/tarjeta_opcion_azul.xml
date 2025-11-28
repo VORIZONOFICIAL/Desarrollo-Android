@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/accent_blue_dark">
+    <item>
+        <layer-list>
+            <!-- Sombra capa 1 -->
+            <item 
+                android:top="0dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:bottom="6dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#08000000"/>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+            <!-- Sombra capa 2 -->
+            <item 
+                android:top="1dp"
+                android:left="1dp"
+                android:right="1dp"
+                android:bottom="5dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#12000000"/>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+            <!-- Fondo con gradiente azul -->
+            <item 
+                android:top="2dp"
+                android:left="2dp"
+                android:right="2dp"
+                android:bottom="4dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="#673AB7"
+                        android:centerColor="@color/accent_blue_dark"
+                        android:endColor="#1565C0"
+                        android:angle="135"/>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+            <!-- Brillo superior -->
+            <item 
+                android:top="2dp"
+                android:left="2dp"
+                android:right="2dp"
+                android:bottom="4dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:startColor="#20FFFFFF"
+                        android:centerColor="#10FFFFFF"
+                        android:endColor="#00FFFFFF"
+                        android:angle="90"/>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

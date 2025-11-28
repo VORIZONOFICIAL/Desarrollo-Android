@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    tools:context=".Login">
+
+    <!-- Header con gradiente -->
+    <LinearLayout
+        android:id="@+id/header_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/fondo_encabezado_azul"
+        android:paddingTop="50dp"
+        android:paddingBottom="40dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/baseline_account_circle_24"
+            android:layout_marginBottom="16dp"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HORZA ONE"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:alpha="0.9"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <!-- Card de Login -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_section"
+        android:layout_marginTop="-30dp"
+        android:layout_marginHorizontal="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iniciar Sesión"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tus credenciales para continuar"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Campo Correo -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue"
+                app:startIconDrawable="@drawable/ic_user"
+                app:startIconTint="@color/text_secondary"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Correo Electrónico"
+                    android:inputType="textEmailAddress"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Campo Contraseña -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:boxStrokeColor="@color/accent_blue"
+                app:hintTextColor="@color/accent_blue"
+                app:startIconDrawable="@drawable/baseline_assignment_24"
+                app:startIconTint="@color/text_secondary"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/text_secondary"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contrasena"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_primary"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Botón de Login -->
+            <FrameLayout
+                android:id="@+id/frameis"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/pill_blue"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="INICIAR SESIÓN"
+                    android:textSize="26sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"/>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="© 2025 Horza One"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Todos los derechos reservados"
+            android:textSize="11sp"
+            android:textColor="@color/text_hint"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
