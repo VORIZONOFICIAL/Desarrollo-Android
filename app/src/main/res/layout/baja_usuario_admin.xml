@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="0dp"
+        android:background="@drawable/degradado_naranja">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="44dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="end|center_vertical"
+            android:paddingEnd="12dp"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/tvTituloBaja"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/degradado_an_btn"
+                android:minWidth="140dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:gravity="center"
+                android:text="Baja"
+                android:textColor="#090909"
+                android:textStyle="bold"
+                android:includeFontPadding="false"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal"
+                android:gravity="end|center_vertical"
+                android:background="@android:color/transparent">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:srcCompat="@drawable/ic_user"
+                    app:tint="#03A9F4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADMINISTRADOR"
+                    android:textColor="#0B0B0B"
+                    android:paddingStart="6dp"
+                    android:gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/etMatricula"
+                android:layout_width="match_parent"
+                android:layout_height="85dp"
+                android:background="@drawable/boton_negro"
+                android:hint="MATRICULA:"
+                android:textStyle="bold"
+                android:textColorHint="#1A1A1A"
+                android:padding="16dp"
+                android:gravity="center|top"
+                android:inputType="textMultiLine"
+                android:maxLength="200" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
+
+            <EditText
+                android:id="@+id/etMotivo"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:background="@drawable/boton_negro"
+                android:hint="MOTIVO:"
+                android:textStyle="bold"
+                android:textColorHint="#1A1A1A"
+                android:padding="16dp"
+                android:gravity="center|top"
+                android:inputType="textMultiLine"
+                android:maxLength="200"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDatos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="30dp"
+                app:cardUseCompatPadding="true"
+                app:strokeColor="#2A2F3B"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="360dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="40dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            app:srcCompat="@drawable/ic_user"
+                            app:tint="#808080" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="8dp"
+                            android:text="Nombre:"
+                            android:textColor="#1F1F1F"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvNombre"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="6dp"
+                            android:textColor="#1F1F1F" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:shrinkColumns="1"
+                        android:stretchColumns="1">
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="RFC:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvRfc"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="Teléfono:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvTelefono"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="Correo:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvCorreo"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="Área:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvArea"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="Puesto:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvPuesto"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:text="Calendario:"
+                                android:textColor="#1F1F1F"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvCalendario"
+                                android:textColor="#1F1F1F" />
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <TextView
+                android:id="@+id/tvBorrarUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/degradado_an_btn"
+                android:includeFontPadding="false"
+                android:minWidth="200dp"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp"
+                android:text="Borrar Usuario"
+                android:textColor="#090909"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+

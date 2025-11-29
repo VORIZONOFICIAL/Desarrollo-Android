@@ -1,0 +1,108 @@
+Index: app/src/main/res/layout/activity_panel_selec.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_panel_selec.xml b/app/src/main/res/layout/activity_panel_selec.xml
+new file mode 100644
+--- /dev/null	(date 1760504462212)
++++ b/app/src/main/res/layout/activity_panel_selec.xml	(date 1760504462212)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/main"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".Panel_selec">
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/horza_one/panel_carga.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/horza_one/panel_carga.java b/app/src/main/java/com/example/horza_one/panel_carga.java
+--- a/app/src/main/java/com/example/horza_one/panel_carga.java	
++++ b/app/src/main/java/com/example/horza_one/panel_carga.java	(date 1760504546201)
+@@ -69,7 +69,7 @@
+                 } else {
+                     // Espera un momento antes de cambiar de Activity
+                     handler.postDelayed(() -> {
+-                        startActivity(new Intent(panel_carga.this, LoginActivity.class));
++                        startActivity(new Intent(panel_carga.this, Panel_selec.class));
+                         finish();
+                     }, 300);
+                 }
+Index: app/src/main/java/com/example/horza_one/Panel_selec.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/horza_one/Panel_selec.java b/app/src/main/java/com/example/horza_one/Panel_selec.java
+new file mode 100644
+--- /dev/null	(date 1760504462149)
++++ b/app/src/main/java/com/example/horza_one/Panel_selec.java	(date 1760504462149)
+@@ -0,0 +1,24 @@
++package com.example.horza_one;
++
++import android.os.Bundle;
++
++import androidx.activity.EdgeToEdge;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.graphics.Insets;
++import androidx.core.view.ViewCompat;
++import androidx.core.view.WindowInsetsCompat;
++
++public class Panel_selec extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        EdgeToEdge.enable(this);
++        setContentView(R.layout.activity_panel_selec);
++        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
++            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
++            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
++            return insets;
++        });
++    }
++}
+\ No newline at end of file
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	(date 1760504462183)
+@@ -13,6 +13,9 @@
+         android:theme="@style/Theme.HorzaOne"
+         tools:targetApi="31">
+         <activity
++            android:name=".Panel_selec"
++            android:exported="false" />
++        <activity
+             android:name=".Login"
+             android:exported="false" />
+         <activity
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	
++++ b/gradle/libs.versions.toml	(date 1760504765280)
+@@ -5,7 +5,7 @@
+ espressoCore = "3.7.0"
+ appcompat = "1.7.1"
+ material = "1.13.0"
+-activity = "1.11.0"
++activity = "1.8.0"
+ constraintlayout = "2.2.1"
+ 
+ [libraries]

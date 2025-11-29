@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/ges_per"
+            android:icon="@drawable/baseline_diversity_3_24"
+            android:title="Gestión Personal" />
+        <item
+            android:id="@+id/asis_acc"
+            android:icon="@drawable/baseline_compare_arrows_24"
+            android:title="Asistencia y Accesos" />
+        <item
+            android:id="@+id/Rep_Est_Fragment"
+            android:icon="@drawable/baseline_assignment_ind_24"
+            android:title="Rendimiento y Estadisticas" />
+        <item
+            android:id="@+id/ctrl_emer"
+            android:icon="@drawable/baseline_emergency_24"
+            android:title="Control Emergencias" />
+        <item
+            android:id="@+id/ajustes"
+            android:icon="@drawable/baseline_display_settings_24"
+            android:title="Ajustes" />
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/baseline_exit_to_app_24"
+            android:title="Salir"/>
+
+    </group>
+</menu>
