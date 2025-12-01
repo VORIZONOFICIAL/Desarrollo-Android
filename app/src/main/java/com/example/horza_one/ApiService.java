@@ -7,6 +7,8 @@ import com.example.horza_one.models.Calendario;
 import com.example.horza_one.models.CambioContrasenaRequest;
 import com.example.horza_one.models.CambioContrasenaResponse;
 import com.example.horza_one.models.Dispositivo;
+import com.example.horza_one.models.EstadisticasDiariaResponse;
+import com.example.horza_one.models.EstadisticasMensualResponse;
 import com.example.horza_one.models.LoginRequest;
 import com.example.horza_one.models.LoginResponse;
 import com.example.horza_one.models.Rol;
@@ -25,6 +27,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -116,4 +119,15 @@ public interface ApiService {
 
     @DELETE("/api/dispositivos/{id}")
     Call<Void> eliminarDispositivo(@Path("id") Integer id);
+
+    // Endpoints de Estadísticas
+    @GET("/api/estadisticas/diarias")
+    Call<EstadisticasDiariaResponse> obtenerEstadisticasDiarias(@Query("fecha") String fecha);
+
+    @GET("/api/estadisticas/mensuales")
+    Call<EstadisticasMensualResponse> obtenerEstadisticasMensuales(
+            @Query("mes") Integer mes,
+            @Query("anio") Integer anio,
+            @Query("tipo") String tipo
+    );
 }
