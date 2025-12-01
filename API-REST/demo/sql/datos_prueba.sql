@@ -25,9 +25,11 @@ INSERT INTO usuarios (matricula, id_rol, rfc, curp, fecha_alta, nombre_usuario, 
 (2, 2, 'MARS900215XYZ', 'MARS900215MDFRMN02', '2025-02-01', 'María', 'Sánchez', 'Ramírez', '5523456789', 'Tiempo Completo', 'maria.sanchez@horza.com', 'Activo', '01235', 'Calle Secundaria 456', 'super123'),
 (3, 3, 'CARL880320DEF', 'CARL880320HDFMNR03', '2025-03-10', 'Carlos', 'López', 'Martínez', '5534567890', 'Medio Tiempo', 'carlos.lopez@horza.com', 'Activo', '01236', 'Av. Reforma 789', 'emp123'),
 (4, 3, 'ANRO950412GHI', 'ANRO950412MDFLPR04', '2025-04-05', 'Ana', 'Rodríguez', 'Flores', '5545678901', 'Tiempo Completo', 'ana.rodriguez@horza.com', 'Activo', '01237', 'Calle Norte 321', 'ana2025'),
+
 (5, 4, 'PEHE921125JKL', 'PEHE921125HDFRMN05', '2025-05-20', 'Pedro', 'Hernández', 'Cruz', '5556789012', 'Temporal', 'pedro.hernandez@horza.com', 'Inactivo', '01238', 'Av. Sur 654', 'temp123');
 
-
+INSERT INTO usuarios (matricula, id_rol, rfc, curp, fecha_alta, nombre_usuario, apellido_paterno_usuario, apellido_materno_usuario, telefono, tipo_contrato, correo, activo, cp_usuario, calle_usuario, contrasenia) VALUES
+(6, 2, 'PLHE929125JKL', 'PLHE929125HDFRMN05', '2024-05-20', 'Isra', 'Hernández', 'Cruz', '5556782512', 'Confinza', 'ista.sO@horza.com', 'Activo', '05638', 'Av. Norte 654', 'israsO78');
 -- ============================================
 -- 4. BITÁCORAS (una por usuario)
 -- ============================================
