@@ -1,5 +1,7 @@
 package com.example.horza_one.ui_Admin.Home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,8 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.horza_one.R;
 import com.example.horza_one.databinding.FragmentHomeAdminBinding;
 import com.github.mikephil.charting.charts.BarChart;
-
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
@@ -29,30 +29,35 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Home_Fragment extends Fragment {
 
-    private TextView bienvus;
+    private FragmentHomeAdminBinding binding;
     private static final String TAG = "EvPersonalChart";
     private BarChart barChart;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bienvus.findViewById(R.id.bienvus);
-    }
-
-    @Nullable
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_ev_per_personal, container, false);
-    }
+                             ViewGroup container, Bundle savedInstanceState) {
+        Home_ViewModel homeViewModel =
+                new ViewModelProvider(this).get(Home_ViewModel.class);
 
+        binding = FragmentHomeAdminBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        // ✅ OBTENER NOMBRE DEL USUARIO DESDE SharedPreferences
+        SharedPreferences prefs = requireActivity().getSharedPreferences("HorzaPrefs", Context.MODE_PRIVATE);
+        String nombreCompleto = prefs.getString("nombreCompleto", "Usuario");
+        String nombreRol = prefs.getString("nombreRol", "");
+
+        // ✅ MOSTRAR EN EL TEXTVIEW (asume que tienes un TextView en tu layout)
+        final TextView textView = binding.bienvus;
+        textView.setText("Bienvenido, " + nombreCompleto + " (" + nombreRol + ")");
+        return root;
+    }
     @Override
     public void onViewCreated(@NonNull View root, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(root, savedInstanceState);
+
+
 
         FrameLayout chartContainer = root.findViewById(R.id.chartContainer);
         if (chartContainer == null) {
@@ -73,7 +78,7 @@ public class Home_Fragment extends Fragment {
 
         setupBarChart(barChart);
 
-        final String[] labels = {"Retardos","Asistencias","Faltas","Permisos"};
+        final String[] labels = {"Entrada","Salida","Puntuales","Retardos", "Faltas"};
         final float[]  values = {3f, 15f, 2f, 5f};
 
         barChart.post(() -> {

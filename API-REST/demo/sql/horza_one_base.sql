@@ -1,6 +1,11 @@
 -- ===============================================
 --  CREACIÓN DE BASE DE DATOS HORIZON_ONE
 -- ===============================================
+
+drop database if exists HORIZON_ONE;
+drop role if exists 'ROL_ADMIN';
+drop role if exists 'ROL_PERSONAL';
+
 CREATE DATABASE IF NOT EXISTS HORIZON_ONE
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
