@@ -227,34 +227,21 @@
                         android:spinnerMode="dropdown" />
                 </LinearLayout>
 
-                <!-- Estado Activo/Inactivo -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Estado del Dispositivo"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
+                <!-- Información de Estado -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/entrada_texto"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/info_background"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:paddingStart="16dp"
-                    android:paddingTop="12dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="12dp">
+                    android:padding="16dp">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/baseline_display_settings_24"
-                        app:tint="@color/accent_blue_dark" />
+                        android:src="@drawable/baseline_info_24"
+                        app:tint="@color/accent_blue" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -262,17 +249,9 @@
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif"
-                        android:text="Activar/Desactivar"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switchActivoDispositivo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:thumb="@drawable/thumb_selector"
-                        app:track="@drawable/track_selector" />
+                        android:text="El dispositivo se creará como Inactivo (disponible). Solo se activa cuando un usuario lo seleccione para acceder al módulo."
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </LinearLayout>

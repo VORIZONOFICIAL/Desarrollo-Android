@@ -74,6 +74,28 @@ public class DispositivoServiceImpl implements DispositivoService {
     }
 
     @Override
+    public List<DispositivoDTO> obtenerDispositivosInactivos() {
+        return dispositivoRepository.findAll().stream()
+                .filter(d -> "Inactivo".equals(d.getActivoDispositivo()))
+                .map(this::convertirADTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public DispositivoDTO cambiarEstado(Integer id, String nuevoEstado) {
+        Dispositivo dispositivo = dispositivoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Dispositivo no encontrado"));
+        
+        if (!"Activo".equals(nuevoEstado) && !"Inactivo".equals(nuevoEstado)) {
+            throw new RuntimeException("Estado inválido. Debe ser 'Activo' o 'Inactivo'");
+        }
+        
+        dispositivo.setActivoDispositivo(nuevoEstado);
+        Dispositivo dispositivoActualizado = dispositivoRepository.save(dispositivo);
+        return convertirADTO(dispositivoActualizado);
+    }
+
+    @Override
     public void eliminar(Integer id) {
         dispositivoRepository.deleteById(id);
     }

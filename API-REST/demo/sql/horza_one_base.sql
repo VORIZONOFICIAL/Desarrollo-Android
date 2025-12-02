@@ -1,11 +1,6 @@
 -- ===============================================
 --  CREACIÓN DE BASE DE DATOS HORIZON_ONE
 -- ===============================================
-
-drop database if exists HORIZON_ONE;
-drop role if exists 'ROL_ADMIN';
-drop role if exists 'ROL_PERSONAL';
-
 CREATE DATABASE IF NOT EXISTS HORIZON_ONE
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
@@ -87,7 +82,7 @@ CREATE TABLE DISPOSITIVO (
   id_area INT NOT NULL,
   nombre_dispositivo VARCHAR(100) NOT NULL,
   descripcion_dispositivo TEXT,
-  activo_dispositivo ENUM('Activo', 'Inactivo') DEFAULT 'Activo',
+  activo_dispositivo ENUM('Activo', 'Inactivo') DEFAULT 'Inactivo',
   FOREIGN KEY (id_area) REFERENCES AREA(id_area) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
@@ -210,7 +205,3 @@ END$$
 
 DELIMITER ;
 
--- ===============================================
--- ✅ VERIFICACIÓN DE CASCADE
--- ===============================================
--- Este query te permite verificar que todos los CASCADE están correctos

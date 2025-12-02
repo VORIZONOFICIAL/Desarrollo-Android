@@ -25,11 +25,9 @@ INSERT INTO usuarios (matricula, id_rol, rfc, curp, fecha_alta, nombre_usuario, 
 (2, 2, 'MARS900215XYZ', 'MARS900215MDFRMN02', '2025-02-01', 'María', 'Sánchez', 'Ramírez', '5523456789', 'Tiempo Completo', 'maria.sanchez@horza.com', 'Activo', '01235', 'Calle Secundaria 456', 'super123'),
 (3, 3, 'CARL880320DEF', 'CARL880320HDFMNR03', '2025-03-10', 'Carlos', 'López', 'Martínez', '5534567890', 'Medio Tiempo', 'carlos.lopez@horza.com', 'Activo', '01236', 'Av. Reforma 789', 'emp123'),
 (4, 3, 'ANRO950412GHI', 'ANRO950412MDFLPR04', '2025-04-05', 'Ana', 'Rodríguez', 'Flores', '5545678901', 'Tiempo Completo', 'ana.rodriguez@horza.com', 'Activo', '01237', 'Calle Norte 321', 'ana2025'),
-
 (5, 4, 'PEHE921125JKL', 'PEHE921125HDFRMN05', '2025-05-20', 'Pedro', 'Hernández', 'Cruz', '5556789012', 'Temporal', 'pedro.hernandez@horza.com', 'Inactivo', '01238', 'Av. Sur 654', 'temp123');
 
-INSERT INTO usuarios (matricula, id_rol, rfc, curp, fecha_alta, nombre_usuario, apellido_paterno_usuario, apellido_materno_usuario, telefono, tipo_contrato, correo, activo, cp_usuario, calle_usuario, contrasenia) VALUES
-(6, 2, 'PLHE929125JKL', 'PLHE929125HDFRMN05', '2024-05-20', 'Isra', 'Hernández', 'Cruz', '5556782512', 'Confinza', 'ista.sO@horza.com', 'Activo', '05638', 'Av. Norte 654', 'israsO78');
+
 -- ============================================
 -- 4. BITÁCORAS (una por usuario)
 -- ============================================
@@ -66,16 +64,18 @@ INSERT INTO bloques_horario (id_bloque, id_horario, id_area, nombre_bloque, hora
 (3, 1, 2, 'Bloque Mañana TI', '08:00:00', '12:00:00'),
 (4, 1, 2, 'Bloque Tarde TI', '12:00:00', '15:00:00'),
 (5, 2, 3, 'Bloque Tarde Finanzas', '14:00:00', '18:00:00'),
-(6, 2, 4, 'Bloque Noche Operaciones', '18:00:00', '21:00:00');
+(6, 2, 4, 'Bloque Noche Operaciones', '18:00:00', '21:00:00'),
+(8, 1, 3, 'Prueba', '15:10:00', '16:10:00'),
+(9, 1, 4, 'Prueba', '16:10:00', '19:10:00');
 
 -- ============================================
 -- 8. DISPOSITIVOS
 -- ============================================
 INSERT INTO dispositivo (id_dispositivo, id_area, nombre_dispositivo, descripcion_dispositivo, activo_dispositivo) VALUES
-(1, 1, 'Terminal RH Entrada', 'Lector biométrico entrada RH', 'Activo'),
-(2, 2, 'Terminal TI Principal', 'Lector biométrico área TI', 'Activo'),
-(3, 3, 'Terminal Finanzas', 'Lector de tarjeta magnética', 'Activo'),
-(4, 4, 'Terminal Operaciones', 'Lector biométrico y facial', 'Activo'),
+(1, 1, 'Terminal RH Entrada', 'Lector biométrico entrada RH', 'Inactivo'),
+(2, 2, 'Terminal TI Principal', 'Lector biométrico área TI', 'Inactivo'),
+(3, 3, 'Terminal Finanzas', 'Lector de tarjeta magnética', 'Inactivo'),
+(4, 4, 'Terminal Operaciones', 'Lector biométrico y facial', 'Inactivo'),
 (5, 5, 'Terminal Archivo', 'Dispositivo antiguo', 'Inactivo');
 
 -- ============================================

@@ -69,9 +69,27 @@ public class DispositivoController {
         return ResponseEntity.ok(dispositivoService.actualizar(id, dispositivoDTO));
     }
 
+    @GetMapping("/inactivos")
+    public ResponseEntity<List<DispositivoDTO>> obtenerDispositivosInactivos() {
+        return ResponseEntity.ok(dispositivoService.obtenerDispositivosInactivos());
+    }
+
+    @PutMapping("/{id}/estado")
+    public ResponseEntity<DispositivoDTO> cambiarEstado(@PathVariable Integer id, @RequestBody EstadoRequest estadoRequest) {
+        return ResponseEntity.ok(dispositivoService.cambiarEstado(id, estadoRequest.getEstado()));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         dispositivoService.eliminar(id);
         return ResponseEntity.noContent().build();
+    }
+    
+    // Clase interna para recibir el estado
+    private static class EstadoRequest {
+        private String estado;
+        
+        public String getEstado() { return estado; }
+        public void setEstado(String estado) { this.estado = estado; }
     }
 }

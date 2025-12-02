@@ -107,7 +107,7 @@ public class DispositivosTabFragment extends Fragment {
         editNombreDispositivo = vista.findViewById(R.id.editNombreDispositivo);
         editDescripcionDispositivo = vista.findViewById(R.id.editDescripcionDispositivo);
         spinnerArea = vista.findViewById(R.id.spinnerArea);
-        switchActivoDispositivo = vista.findViewById(R.id.switchActivoDispositivo);
+        // switchActivoDispositivo eliminado - los dispositivos siempre se crean como Inactivo
         btnRegistrarDispositivo = vista.findViewById(R.id.btnRegistrarDispositivo);
         btnCancelarEdicion = vista.findViewById(R.id.btnCancelarEdicion);
         recyclerViewDispositivos = vista.findViewById(R.id.recyclerViewDispositivos);
@@ -200,7 +200,10 @@ public class DispositivosTabFragment extends Fragment {
         // Obtener valores
         String nombre = editNombreDispositivo.getText().toString().trim();
         String descripcion = editDescripcionDispositivo.getText().toString().trim();
-        String estado = switchActivoDispositivo.isChecked() ? "Activo" : "Inactivo";
+        
+        // Los dispositivos siempre se crean como "Inactivo"
+        // Solo se activan cuando un usuario los selecciona en el módulo de accesos
+        String estado = "Inactivo";
         
         // Obtener el área seleccionada
         int posicionArea = spinnerArea.getSelectedItemPosition();
@@ -322,7 +325,7 @@ public class DispositivosTabFragment extends Fragment {
         editIdDispositivo.setTextColor(requireContext().getColor(R.color.text_primary));
         editNombreDispositivo.setText("");
         editDescripcionDispositivo.setText("");
-        switchActivoDispositivo.setChecked(true); // Default Activo
+        // No hay switch - los dispositivos siempre se crean como Inactivo
         spinnerArea.setSelection(0);
         editIdDispositivo.requestFocus();
         
@@ -342,7 +345,7 @@ public class DispositivosTabFragment extends Fragment {
         // Cargar datos en el formulario
         editNombreDispositivo.setText(dispositivo.getNombreDispositivo());
         editDescripcionDispositivo.setText(dispositivo.getDescripcionDispositivo());
-        switchActivoDispositivo.setChecked("Activo".equals(dispositivo.getActivoDispositivo()));
+        // El estado no se puede editar manualmente - se maneja automáticamente por el sistema
         
         // Seleccionar el área en el spinner
         for (int i = 0; i < listaAreas.size(); i++) {

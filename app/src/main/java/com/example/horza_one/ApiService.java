@@ -7,16 +7,17 @@ import com.example.horza_one.models.Calendario;
 import com.example.horza_one.models.CambioContrasenaRequest;
 import com.example.horza_one.models.CambioContrasenaResponse;
 import com.example.horza_one.models.Dispositivo;
+import com.example.horza_one.models.EstadoDispositivoRequest;
 import com.example.horza_one.models.EstadisticasDiariaResponse;
 import com.example.horza_one.models.EstadisticasMensualResponse;
 import com.example.horza_one.models.LoginRequest;
 import com.example.horza_one.models.LoginResponse;
+import com.example.horza_one.models.Registro;
+import com.example.horza_one.models.RegistroAccesoRequest;
+import com.example.horza_one.models.RegistroAccesoResponse;
 import com.example.horza_one.models.Rol;
 import com.example.horza_one.models.Usuario;
 import com.example.horza_one.models.UsuarioRequest;
-import com.google.errorprone.annotations.Var;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
@@ -33,11 +34,14 @@ public interface ApiService {
 
     //modificar la direccion del host
 
-    //Mikel
+    //LOCALHOST EMULADOR
     //String BASE_URL = "http://10.0.2.2:8080/";
 
+    //Mikel
+    String BASE_URL = "http://192.168.3.82:8080/";
+
     //Greco
-    String BASE_URL = "http://192.168.1.71:8080/";
+    //String BASE_URL = "http://192.168.1.71:8080/";
 
 //    Ejemplo
 //    Endpoints de Usuarios
@@ -111,6 +115,12 @@ public interface ApiService {
     @GET("/api/dispositivos/area/{idArea}")
     Call<List<Dispositivo>> obtenerDispositivosPorArea(@Path("idArea") Integer idArea);
 
+    @GET("/api/dispositivos/inactivos")
+    Call<List<Dispositivo>> obtenerDispositivosInactivos();
+
+    @PUT("/api/dispositivos/{id}/estado")
+    Call<Dispositivo> cambiarEstadoDispositivo(@Path("id") Integer id, @Body EstadoDispositivoRequest estado);
+
     @POST("/api/dispositivos")
     Call<Dispositivo> crearDispositivo(@Body Dispositivo dispositivo);
 
@@ -119,6 +129,10 @@ public interface ApiService {
 
     @DELETE("/api/dispositivos/{id}")
     Call<Void> eliminarDispositivo(@Path("id") Integer id);
+
+    // Endpoints de Registro de Accesos
+    @POST("/api/registros/registrar-acceso")
+    Call<RegistroAccesoResponse> registrarAcceso(@Body RegistroAccesoRequest request);
 
     // Endpoints de Estadísticas
     @GET("/api/estadisticas/diarias")
@@ -130,4 +144,8 @@ public interface ApiService {
             @Query("anio") Integer anio,
             @Query("tipo") String tipo
     );
+    
+    // Endpoint para obtener los últimos 3 registros de un dispositivo
+    @GET("/api/registros/ultimos/{idDispositivo}")
+    Call<List<Registro>> obtenerUltimos3Registros(@Path("idDispositivo") Integer idDispositivo);
 }
