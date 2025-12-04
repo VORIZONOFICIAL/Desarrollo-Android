@@ -1,72 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Tab de Áreas - Contenido del CRUD de áreas -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background_light"
-    tools:context=".ui_Admin.Ajustes.Ajustes_Administracion_Areas">
+    android:background="@color/background_light">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <!-- Encabezado con gradiente NARANJA -->
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/fondo_encabezado"
-            android:elevation="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="24dp"
-                android:paddingBottom="20dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-
-
-                    <!-- Badge Gestión de Roles y Permisos - Debajo del logo -->
-                    <LinearLayout
-                        android:id="@+id/badgeRoles"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/insignia"
-                        android:elevation="8dp"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingVertical="8dp"
-                        android:paddingStart="16dp"
-                        tools:ignore="MissingConstraints">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:letterSpacing="0.01"
-                            android:text="Administración de Áreas"
-                            android:textColor="@color/primary_orange"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
 
         <!-- Título: Registro de Nueva Área -->
         <TextView
@@ -82,7 +26,7 @@
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appbar" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Card: Datos del Área -->
         <androidx.cardview.widget.CardView
@@ -287,32 +231,56 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:thumbTint="@color/text_white"
-                        app:trackTint="@color/accent_blue_dark" />
+                        android:thumb="@drawable/thumb_selector"
+                        app:track="@drawable/track_selector" />
                 </LinearLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Botón Registrar Área -->
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnRegistrarArea"
+        <!-- Botones de Acción -->
+        <LinearLayout
+            android:id="@+id/layoutBotonesAccion"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/boton_principal"
-            android:elevation="6dp"
-            android:fontFamily="sans-serif-black"
-            android:letterSpacing="0.05"
-            android:text="Registrar Área"
-            android:textColor="@color/text_white"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardDatosArea" />
+            app:layout_constraintTop_toBottomOf="@id/cardDatosArea">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegistrarArea"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@drawable/boton_principal_v2"
+                android:elevation="6dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:text="Registrar Área"
+                android:textColor="@color/text_white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCancelarEdicion"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/boton_principal"
+                android:elevation="6dp"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.05"
+                android:text="Cancelar"
+                android:textColor="@color/text_white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
 
         <!-- Título: Áreas Registradas -->
         <TextView
@@ -328,7 +296,7 @@
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnRegistrarArea" />
+            app:layout_constraintTop_toBottomOf="@id/layoutBotonesAccion" />
 
         <!-- Buscador de Áreas -->
         <LinearLayout
@@ -353,7 +321,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/buscar"
-                app:tint="@color/primary_orange" />
+                android:tint="@color/primary_orange" />
 
             <EditText
                 android:id="@+id/editBuscarArea"
@@ -368,6 +336,20 @@
                 android:textColor="@color/text_primary"
                 android:textColorHint="@color/text_hint"
                 android:textSize="16sp" />
+            
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/boton_principal_v2"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Buscar"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <!-- RecyclerView para Lista de Áreas -->

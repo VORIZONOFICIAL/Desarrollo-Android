@@ -4,110 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/background_light"
-    tools:context=".ui_Admin.Home.Home_Fragment">
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutHome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".ui_Admin.Home.Home_Fragment">
 
-        <!-- Encabezado con gradiente NARANJA -->
+        <!-- Encabezado -->
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+            android:id="@+id/appbarConsultas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/fondo_encabezado"
-            android:elevation="12dp"
+            android:elevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
+                android:layout_height="150dp"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
                 android:paddingEnd="24dp"
-                android:paddingBottom="20dp">
+                android:paddingBottom="28dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:ignore="MissingConstraints">
 
-
-                    <!-- Badge Gestión de Roles y Permisos - Debajo del logo -->
-                    <LinearLayout
-                        android:id="@+id/badgeRoles"
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:id="@+id/bienvus"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/insignia"
-                        android:elevation="8dp"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingVertical="8dp"
-                        android:paddingStart="16dp"
-                        tools:ignore="MissingConstraints">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:letterSpacing="0.01"
-                            android:text="Home Administrador"
-                            android:textColor="@color/primary_orange"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
-
+                        android:fontFamily="sans-serif-black"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="28sp"
+                        android:letterSpacing="0.06"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Título: Registro de Nueva Área -->
-
-        <!-- Card: Datos del Área -->
-
-        <TextView
-            android:id="@+id/textTituloRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="52dp"
-            android:fontFamily="sans-serif-black"
-            android:letterSpacing="0.02"
-            android:text="Desempeño General del Personal"
-            android:textColor="@color/text_primary"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appbar" />
-
+        <!-- Gráfica Diaria -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardDatosArea"
+            android:id="@+id/cardGraficaDiaria"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
-            app:cardBackgroundColor="@android:color/white"
             app:cardCornerRadius="20dp"
             app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTituloRegistro">
+            app:layout_constraintTop_toBottomOf="@id/appbarConsultas">
 
-            <FrameLayout
-                android:id="@+id/chartContainer"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_margin="20dp"
-                android:background="#EEEEEE" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estadísticas del Día"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="8dp" />
+
+                <FrameLayout
+                    android:id="@+id/chartContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:background="#EEEEEE" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Selector de Estadística Mensual -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSelectorMensual"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardGraficaDiaria">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver Estadísticas Mensuales"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecciona el tipo de estadística:"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerTipoEstadistica"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/boton_principal"
+                    android:padding="12dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Gráfica Mensual -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardGraficaMensual"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardSelectorMensual"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/textTituloGraficaMensual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estadísticas Mensuales - Puntuales"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="8dp" />
+
+                <FrameLayout
+                    android:id="@+id/chartContainerMensual"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:background="#EEEEEE" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

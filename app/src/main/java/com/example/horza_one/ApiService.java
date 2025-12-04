@@ -1,28 +1,47 @@
 package com.example.horza_one;
 
 import com.example.horza_one.models.Area;
+import com.example.horza_one.models.BajaResponse;
+import com.example.horza_one.models.BajaUsuarioRequest;
 import com.example.horza_one.models.Calendario;
+import com.example.horza_one.models.CambioContrasenaRequest;
+import com.example.horza_one.models.CambioContrasenaResponse;
+import com.example.horza_one.models.Dispositivo;
+import com.example.horza_one.models.EstadoDispositivoRequest;
+import com.example.horza_one.models.EstadisticasDiariaResponse;
+import com.example.horza_one.models.EstadisticasMensualResponse;
 import com.example.horza_one.models.LoginRequest;
 import com.example.horza_one.models.LoginResponse;
+import com.example.horza_one.models.Registro;
+import com.example.horza_one.models.RegistroAccesoRequest;
+import com.example.horza_one.models.RegistroAccesoResponse;
 import com.example.horza_one.models.Rol;
 import com.example.horza_one.models.Usuario;
 import com.example.horza_one.models.UsuarioRequest;
-import com.google.errorprone.annotations.Var;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
-    String BASE_URL = "http://192.168.3.82:8080/";
     //modificar la direccion del host
+
+    //LOCALHOST EMULADOR
+    //String BASE_URL = "http://10.0.2.2:8080/";
+
+    //Mikel
+    String BASE_URL = "http://192.168.3.82:8080/";
+
+    //Greco
+    //String BASE_URL = "http://192.168.1.71:8080/";
 
 //    Ejemplo
 //    Endpoints de Usuarios
@@ -58,17 +77,79 @@ public interface ApiService {
     @POST("/api/usuarios")
     Call<Usuario> crearUsuario(@Body UsuarioRequest usuarioRequest);
 
-    //Aplicar lo del CRUD a cada modelo
-    //Endpint Area
+    // Endpoint POST para eliminar usuario con validación
+    @POST("/api/usuarios/eliminar-con-validacion")
+    Call<BajaResponse> eliminarUsuarioConValidacion(@Body BajaUsuarioRequest bajaRequest);
+
+    // Endpoint PUT para actualizar usuario
+    @PUT("/api/usuarios/{matricula}")
+    Call<Usuario> actualizarUsuario(@Path("matricula") Integer matricula, @Body UsuarioRequest usuarioRequest);
+
+    // Endpoints de Áreas
     @GET("/api/areas")
-    Call<List<Area>> obtenerTodas();
+    Call<List<Area>> obtenerAreas();
 
     @GET("/api/areas/{id}")
-    Call<Area> obtenerPorId();
+    Call<Area> obtenerAreaPorId(@Path("id") Integer id);
 
     @POST("/api/areas")
-    Call<Area> obtenerPorId(@Body Area area);
+    Call<Area> crearArea(@Body Area area);
 
     @PUT("/api/areas/{id}")
-    Call<Area> actualizar(@Var Integer id, @Body Area area);
+    Call<Area> actualizarArea(@Path("id") Integer id, @Body Area area);
+
+    @DELETE("/api/areas/{id}")
+    Call<Void> eliminarArea(@Path("id") Integer id);
+
+    // Endpoint para cambiar contraseña
+    @POST("/api/usuarios/cambiar-contrasena")
+    Call<CambioContrasenaResponse> cambiarContrasena(@Body CambioContrasenaRequest request);
+
+    // Endpoints de Dispositivos
+    @GET("/api/dispositivos")
+    Call<List<Dispositivo>> obtenerDispositivos();
+
+    @GET("/api/dispositivos/{id}")
+    Call<Dispositivo> obtenerDispositivoPorId(@Path("id") Integer id);
+
+    @GET("/api/dispositivos/area/{idArea}")
+    Call<List<Dispositivo>> obtenerDispositivosPorArea(@Path("idArea") Integer idArea);
+
+    @GET("/api/dispositivos/inactivos")
+    Call<List<Dispositivo>> obtenerDispositivosInactivos();
+
+    @PUT("/api/dispositivos/{id}/estado")
+    Call<Dispositivo> cambiarEstadoDispositivo(@Path("id") Integer id, @Body EstadoDispositivoRequest estado);
+
+    @POST("/api/dispositivos")
+    Call<Dispositivo> crearDispositivo(@Body Dispositivo dispositivo);
+
+    @PUT("/api/dispositivos/{id}")
+    Call<Dispositivo> actualizarDispositivo(@Path("id") Integer id, @Body Dispositivo dispositivo);
+
+    @DELETE("/api/dispositivos/{id}")
+    Call<Void> eliminarDispositivo(@Path("id") Integer id);
+
+    // Endpoints de Registro de Accesos
+    @POST("/api/registros/registrar-acceso")
+    Call<RegistroAccesoResponse> registrarAcceso(@Body RegistroAccesoRequest request);
+
+    // Endpoints de Estadísticas
+    @GET("/api/estadisticas/diarias")
+    Call<EstadisticasDiariaResponse> obtenerEstadisticasDiarias(@Query("fecha") String fecha);
+
+    @GET("/api/estadisticas/mensuales")
+    Call<EstadisticasMensualResponse> obtenerEstadisticasMensuales(
+            @Query("mes") Integer mes,
+            @Query("anio") Integer anio,
+            @Query("tipo") String tipo
+    );
+    
+    // Endpoint para obtener los últimos 3 registros de un dispositivo
+    @GET("/api/registros/ultimos/{idDispositivo}")
+    Call<List<Registro>> obtenerUltimos3Registros(@Path("idDispositivo") Integer idDispositivo);
+    
+    // Endpoint para obtener todos los registros de un dispositivo
+    @GET("/api/registros/dispositivo/{idDispositivo}")
+    Call<List<Registro>> obtenerTodosRegistrosPorDispositivo(@Path("idDispositivo") Integer idDispositivo);
 }

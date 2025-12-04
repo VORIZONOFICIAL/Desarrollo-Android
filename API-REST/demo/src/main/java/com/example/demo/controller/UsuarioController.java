@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.BajaUsuarioRequest;
 import com.example.demo.dto.CambioContrasenaRequest;
 import com.example.demo.dto.UsuarioDTO;
 import com.example.demo.service.UsuarioService;
@@ -57,6 +58,29 @@ public class UsuarioController {
         } else {
             response.put("success", false);
             response.put("mensaje", "Contraseña actual incorrecta");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+    }
+
+    @PostMapping("/eliminar-con-validacion")
+    public ResponseEntity<Map<String, Object>> eliminarConValidacion(@RequestBody BajaUsuarioRequest request) {
+        Map<String, Object> response = new HashMap<>();
+        
+        try {
+            boolean exitoso = usuarioService.eliminarConValidacion(request);
+            
+            if (exitoso) {
+                response.put("success", true);
+                response.put("mensaje", "Usuario eliminado correctamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("success", false);
+                response.put("mensaje", "Contraseña de administrador incorrecta");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            }
+        } catch (RuntimeException e) {
+            response.put("success", false);
+            response.put("mensaje", e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
     }

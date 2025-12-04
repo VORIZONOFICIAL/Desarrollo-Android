@@ -9,6 +9,7 @@ public class RegistroDTO {
     private Integer idBitacora;
     private Integer idDispositivo;
     private Integer idArea;
+    private String nombreArea;
     private String tipoRegistro;
     private LocalDate fecha;
     private LocalTime hora;
@@ -20,12 +21,15 @@ public class RegistroDTO {
     }
 
     // Constructor con todos los argumentos
-    public RegistroDTO(Integer idRegistro, Integer matricula, Integer idBitacora, Integer idDispositivo, Integer idArea, String tipoRegistro, LocalDate fecha, LocalTime hora, String observacion, String estadoRegistro) {
+    public RegistroDTO(Integer idRegistro, Integer matricula, Integer idBitacora, Integer idDispositivo, 
+                       Integer idArea, String nombreArea, String tipoRegistro, LocalDate fecha, 
+                       LocalTime hora, String observacion, String estadoRegistro) {
         this.idRegistro = idRegistro;
         this.matricula = matricula;
         this.idBitacora = idBitacora;
         this.idDispositivo = idDispositivo;
         this.idArea = idArea;
+        this.nombreArea = nombreArea;
         this.tipoRegistro = tipoRegistro;
         this.fecha = fecha;
         this.hora = hora;
@@ -112,5 +116,13 @@ public class RegistroDTO {
 
     public void setEstadoRegistro(String estadoRegistro) {
         this.estadoRegistro = estadoRegistro;
+    }
+
+    public String getNombreArea() {
+        return nombreArea;
+    }
+
+    public void setNombreArea(String nombreArea) {
+        this.nombreArea = nombreArea;
     }
 }

@@ -2,113 +2,342 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background_light"
     tools:context=".ui_Personal.Home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Encabezado con gradiente NARANJA -->
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+            android:id="@+id/appbarConsultas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/fondo_encabezado"
-            android:elevation="12dp"
+            android:elevation="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="28dp">
+
+                <!-- Título y estadísticas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:ignore="MissingConstraints">
+                    <TextView
+                        android:id="@+id/bienvus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text=""
+                        android:textColor="@color/text_white"
+                        android:textSize="50sp"
+                        android:letterSpacing="0.06"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/appbarConsultas">
+
+            <!-- Tarjeta de Estadísticas -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="24dp"
-                android:paddingBottom="20dp">
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Estadísticas del Mes"
+                        android:textColor="#2C3E50"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                    <!-- Badge Gestión de Roles y Permisos - Debajo del logo -->
+                    <!-- Contador de días con asistencia -->
                     <LinearLayout
-                        android:id="@+id/badgeRoles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/insignia"
-                        android:elevation="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/boton_principal"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingVertical="8dp"
-                        android:paddingStart="16dp"
-                        tools:ignore="MissingConstraints">
+                        android:padding="12dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:letterSpacing="0.01"
-                            android:text="Home Administrador"
-                            android:textColor="@color/primary_orange"
-                            android:textSize="14sp"
+                            android:text="Días registrados en el mes: "
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textDiasRegistrados"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
+                    <!-- Gráfica de Pastel -->
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginTop="8dp" />
 
-        </com.google.android.material.appbar.AppBarLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <!-- Título: Registro de Nueva Área -->
-
-        <!-- Card: Datos del Área -->
-
-        <TextView
-            android:id="@+id/textTituloRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="52dp"
-            android:fontFamily="sans-serif-black"
-            android:letterSpacing="0.02"
-            android:text="Desempeño General del Usuario"
-            android:textColor="@color/text_primary"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appbar" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardDatosArea"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="76dp"
-            android:layout_marginEnd="24dp"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textTituloRegistro">
-
-            <FrameLayout
-                android:id="@+id/chartContainer"
+            <!-- Tarjeta del Calendario -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
-                android:layout_margin="20dp"
-                android:background="#EEEEEE" />
-        </androidx.cardview.widget.CardView>
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Calendario de Asistencias"
+                        android:textColor="#2C3E50"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- Mes actual -->
+                    <TextView
+                        android:id="@+id/textMesActual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="12dp"
+                        android:text="Noviembre 2025"
+                        android:textColor="#34495E"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <!-- Leyenda -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <!-- Verde - Puntual -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/calendar_day_green" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Puntual"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Amarillo - Retardo -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/calendar_day_yellow" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Retardo"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Naranja - Permiso -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/calendar_day_orange" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Permiso"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Rojo - Falta -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/calendar_day_red" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Falta"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Encabezado días de la semana -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:columnCount="7">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Dom"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Lun"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Mar"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Mié"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Jue"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Vie"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:text="Sáb"
+                            android:textAlignment="center"
+                            android:textColor="#7F8C8D"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </GridLayout>
+
+                    <!-- Grid del calendario -->
+                    <GridLayout
+                        android:id="@+id/calendarGrid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="7"
+                        android:rowCount="6" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </ScrollView>

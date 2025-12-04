@@ -32,10 +32,19 @@ public class Dispositivo {
     public Dispositivo() {
     }
 
-    // Constructor con todos los argumentos
+    // Constructor con todos los argumentos (para actualizaciones)
     public Dispositivo(Integer idDispositivo, Area area, String nombreDispositivo, 
                        String descripcionDispositivo, String activoDispositivo) {
         this.idDispositivo = idDispositivo;
+        this.area = area;
+        this.nombreDispositivo = nombreDispositivo;
+        this.descripcionDispositivo = descripcionDispositivo;
+        this.activoDispositivo = activoDispositivo;
+    }
+
+    // Constructor sin ID (para nuevas creaciones)
+    public Dispositivo(Area area, String nombreDispositivo, 
+                       String descripcionDispositivo, String activoDispositivo) {
         this.area = area;
         this.nombreDispositivo = nombreDispositivo;
         this.descripcionDispositivo = descripcionDispositivo;

@@ -21,8 +21,11 @@
     <!-- Status Colors -->
     <color name="success_green">#4CAF50</color>
     <color name="success_green_light">#81C784</color>
+    <color name="success">#4CAF50</color>
     <color name="error_red">#F44336</color>
     <color name="error_red_light">#EF5350</color>
+    <color name="error">#F44336</color>
+    <color name="primary">#FF6B35</color>
 
     <!-- Background Colors -->
     <color name="background_light">#F5F7FA</color>
@@ -38,5 +41,11 @@
     <!-- Border & Divider -->
     <color name="divider">#E0E0E0</color>
     <color name="border_light">#EEEEEE</color>
+
+    <!-- Opacity Colors -->
+    <color name="white_opacity_70">#B3FFFFFF</color>
+    
+    <!-- Input Background -->
+    <color name="input_background">#F5F7FA</color>
 
 </resources>

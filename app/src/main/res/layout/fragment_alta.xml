@@ -103,7 +103,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/baseline_assignment_ind_24"
-                        android:tint="@color/text_white" />
+                        app:tint="@color/text_white" />
 
                     <TextView
                         android:id="@+id/textSeccionMatricula"
@@ -140,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-medium"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLength="20"
                         android:textColor="@color/text_primary"
                         android:textSize="14sp" />
