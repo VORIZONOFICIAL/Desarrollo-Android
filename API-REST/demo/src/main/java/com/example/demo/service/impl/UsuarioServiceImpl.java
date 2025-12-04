@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.dto.BajaUsuarioRequest;
 import com.example.demo.dto.CambioContrasenaRequest;
 import com.example.demo.dto.UsuarioDTO;
 import com.example.demo.model.Calendario;
@@ -95,6 +96,11 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setActivo(usuarioDTO.getActivo());
         usuario.setCpUsuario(usuarioDTO.getCpUsuario());
         usuario.setCalleUsuario(usuarioDTO.getCalleUsuario());
+        
+        // Solo actualizar contraseña si viene en el DTO (no null y no vacía)
+        if (usuarioDTO.getContrasena() != null && !usuarioDTO.getContrasena().isEmpty()) {
+            usuario.setContrasena(usuarioDTO.getContrasena());
+        }
 
         Usuario usuarioActualizado = usuarioRepository.save(usuario);
         return convertirADTO(usuarioActualizado);
@@ -103,6 +109,30 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public void eliminar(Integer matricula) {
         usuarioRepository.deleteById(matricula);
+    }
+
+    @Override
+    public boolean eliminarConValidacion(BajaUsuarioRequest request) {
+        // Verificar que el usuario a eliminar existe
+        Usuario usuarioAEliminar = usuarioRepository.findById(request.getMatricula())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado con matrícula: " + request.getMatricula()));
+        
+        // Verificar que el administrador existe y su contraseña es correcta
+        Usuario admin = usuarioRepository.findById(request.getMatriculaAdmin())
+                .orElseThrow(() -> new RuntimeException("Administrador no encontrado"));
+        
+        if (!admin.getContrasena().equals(request.getContrasenaAdmin())) {
+            return false; // Contraseña incorrecta
+        }
+        
+        // Verificar que el admin tiene rol de administrador (id_rol = 1)
+        if (admin.getRol().getIdRol() != 1) {
+            throw new RuntimeException("Solo los administradores pueden eliminar usuarios");
+        }
+        
+        // Eliminar el usuario
+        usuarioRepository.deleteById(request.getMatricula());
+        return true;
     }
 
     @Override

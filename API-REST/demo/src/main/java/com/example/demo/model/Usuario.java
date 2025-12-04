@@ -60,6 +60,9 @@ public class Usuario {
     @Column(name = "contrasenia", length = 12)
     private String contrasena;
 
+    @Column(name = "estado_presencia", columnDefinition = "ENUM('Dentro', 'Fuera')")
+    private String estadoPresencia;
+
     public Usuario() {
     }
 
@@ -202,5 +205,13 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
+    }
+
+    public String getEstadoPresencia() {
+        return estadoPresencia;
+    }
+
+    public void setEstadoPresencia(String estadoPresencia) {
+        this.estadoPresencia = estadoPresencia;
     }
 }

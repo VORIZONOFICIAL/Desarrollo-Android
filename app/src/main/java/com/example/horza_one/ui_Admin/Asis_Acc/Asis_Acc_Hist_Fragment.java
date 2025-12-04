@@ -1,23 +1,53 @@
 package com.example.horza_one.ui_Admin.Asis_Acc;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.horza_one.ApiService;
 import com.example.horza_one.R;
+import com.example.horza_one.adapters.RegistroAdapter;
+import com.example.horza_one.models.Dispositivo;
+import com.example.horza_one.models.Registro;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Asis_Acc_Hist_Fragment extends Fragment implements View.OnClickListener {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+/**
+ * Fragmento para mostrar el historial completo de registros de un dispositivo.
+ * Permite visualizar todas las entradas y salidas registradas en el dispositivo seleccionado.
+ */
+public class Asis_Acc_Hist_Fragment extends Fragment {
+
+    // Vistas
+    private TextView textDispositivoActual, textAreaActual, textContadorRegistros;
+    private RecyclerView recyclerViewRegistros;
+    private RegistroAdapter registroAdapter;
+    private AppCompatButton buttonRefrescar;
+    private ProgressBar progressBar;
+    
+    // Servicios y datos
+    private ApiService apiService;
+    private int dispositivoId;
+    private String dispositivoNombre;
+    private Dispositivo dispositivoActual;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -28,11 +58,167 @@ public class Asis_Acc_Hist_Fragment extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_asis__acc__hist_, container, false);
+        View root = inflater.inflate(R.layout.fragment_asis__acc__hist_, container, false);
+        
+        // Inicializar Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ApiService.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        apiService = retrofit.create(ApiService.class);
+        
+        // Obtener información del dispositivo seleccionado
+        if (getArguments() != null) {
+            dispositivoId = getArguments().getInt("dispositivoId", -1);
+            dispositivoNombre = getArguments().getString("dispositivoNombre", "Desconocido");
+        }
+        
+        // Inicializar vistas
+        textDispositivoActual = root.findViewById(R.id.textDispositivoActual);
+        textAreaActual = root.findViewById(R.id.textAreaActual);
+        textContadorRegistros = root.findViewById(R.id.textContadorRegistros);
+        recyclerViewRegistros = root.findViewById(R.id.recyclerViewHistorial);
+        buttonRefrescar = root.findViewById(R.id.buttonRefrescar);
+        progressBar = root.findViewById(R.id.progressBar);
+        
+        // Configurar RecyclerView
+        recyclerViewRegistros.setLayoutManager(new LinearLayoutManager(getContext()));
+        registroAdapter = new RegistroAdapter(new ArrayList<>());
+        recyclerViewRegistros.setAdapter(registroAdapter);
+        
+        // Configurar botón de refrescar
+        if (buttonRefrescar != null) {
+            buttonRefrescar.setOnClickListener(v -> cargarTodosLosRegistros());
+        }
+        
+        // Cargar información del dispositivo
+        if (dispositivoId != -1) {
+            cargarInformacionDispositivo();
+            cargarTodosLosRegistros();
+        }
+        
+        return root;
     }
 
-    @Override
-    public void onClick(View view) {
+    private void cargarInformacionDispositivo() {
+        Call<Dispositivo> call = apiService.obtenerDispositivoPorId(dispositivoId);
+        call.enqueue(new Callback<Dispositivo>() {
+            @Override
+            public void onResponse(Call<Dispositivo> call, Response<Dispositivo> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    dispositivoActual = response.body();
+                    actualizarInfoDispositivo();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Dispositivo> call, Throwable t) {
+                Toast.makeText(getContext(), "Error al cargar información del dispositivo", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    
+    private void actualizarInfoDispositivo() {
+        if (dispositivoActual != null) {
+            if (textDispositivoActual != null) {
+                textDispositivoActual.setText(dispositivoActual.getNombreDispositivo() != null ? 
+                    dispositivoActual.getNombreDispositivo() : "Dispositivo");
+            }
+            if (textAreaActual != null) {
+                textAreaActual.setText(dispositivoActual.getNombreArea() != null ? 
+                    dispositivoActual.getNombreArea() : "Sin área asignada");
+            }
+        }
+    }
+    
+    private void cargarUltimos3Registros() {
+        Toast.makeText(getContext(), "Cargando registros del dispositivo " + dispositivoId, Toast.LENGTH_SHORT).show();
+        
+        Call<List<Registro>> call = apiService.obtenerUltimos3Registros(dispositivoId);
+        call.enqueue(new Callback<List<Registro>>() {
+            @Override
+            public void onResponse(Call<List<Registro>> call, Response<List<Registro>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Registro> registros = response.body();
+                    
+                    Toast.makeText(getContext(), "Se encontraron " + registros.size() + " registros", Toast.LENGTH_SHORT).show();
+                    
+                    registroAdapter.actualizarLista(registros);
+                    
+                    if (registros.isEmpty()) {
+                        Toast.makeText(getContext(), "No hay registros recientes", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Error al cargar registros. Código: " + response.code(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Registro>> call, Throwable t) {
+                Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
+    }
+    
+    /**
+     * Carga todos los registros del dispositivo desde el backend.
+     */
+    private void cargarTodosLosRegistros() {
+        if (dispositivoId == -1) {
+            Toast.makeText(getContext(), "Error: ID de dispositivo no válido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        if (progressBar != null) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+        recyclerViewRegistros.setVisibility(View.GONE);
+        buttonRefrescar.setEnabled(false);
+        
+        Call<List<Registro>> call = apiService.obtenerTodosRegistrosPorDispositivo(dispositivoId);
+        call.enqueue(new Callback<List<Registro>>() {
+            @Override
+            public void onResponse(Call<List<Registro>> call, Response<List<Registro>> response) {
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                }
+                recyclerViewRegistros.setVisibility(View.VISIBLE);
+                buttonRefrescar.setEnabled(true);
+                
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Registro> registros = response.body();
+                    
+                    if (registros.isEmpty()) {
+                        Toast.makeText(getContext(), "No hay registros disponibles", Toast.LENGTH_SHORT).show();
+                        if (textContadorRegistros != null) {
+                            textContadorRegistros.setText("0 registros encontrados");
+                        }
+                    } else {
+                        registroAdapter.actualizarLista(registros);
+                        if (textContadorRegistros != null) {
+                            textContadorRegistros.setText(registros.size() + " registros encontrados");
+                        }
+                        Toast.makeText(getContext(), "✓ " + registros.size() + " registros cargados", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), 
+                        "Error al cargar registros (código: " + response.code() + ")", 
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Registro>> call, Throwable t) {
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                }
+                recyclerViewRegistros.setVisibility(View.VISIBLE);
+                buttonRefrescar.setEnabled(true);
+                Toast.makeText(getContext(), 
+                    "Error de conexión: " + t.getMessage(), 
+                    Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

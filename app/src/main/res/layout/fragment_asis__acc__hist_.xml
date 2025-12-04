@@ -107,19 +107,21 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textDispositivoActual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-medium"
-                        android:text="@string/area_actual"
+                        android:text="Dispositivo"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/textAreaActual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Edificio Principal - Piso 3"
+                        android:text="Área"
                         android:textColor="@color/text_primary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -416,24 +418,71 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
+                <!-- Header con título y botón refrescar -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:padding="20dp"
-                    android:paddingBottom="12dp"
-                    android:text="Historial Completo"
-                    android:textColor="@color/text_primary"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:paddingBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="Historial Completo"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonRefrescar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:background="@drawable/boton_principal_v2"
+                        android:drawableLeft="@drawable/ic_history"
+                        android:drawablePadding="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:text="Refrescar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Contador de registros -->
+                <TextView
+                    android:id="@+id/textContadorRegistros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="8dp"
+                    android:text="0 registros encontrados"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/divider" />
+
+                <!-- ProgressBar -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="24dp"
+                    android:indeterminateTint="@color/primary_orange"
+                    android:visibility="gone" />
 
                 <!-- RecyclerView para mostrar los registros -->
                 <androidx.recyclerview.widget.RecyclerView

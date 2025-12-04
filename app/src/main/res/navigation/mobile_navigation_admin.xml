@@ -31,15 +31,33 @@
 
     <fragment
         android:id="@+id/asis_acc"
+        android:name="com.example.horza_one.ui_Admin.Asis_Acc.SeleccionDispositivoFragment"
+        android:label=""
+        tools:layout="@layout/fragment_seleccion_dispositivo" >
+        <action
+            android:id="@+id/action_asis_acc_to_asis_Acc_Fragment"
+            app:destination="@id/asis_Acc_Fragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/asis_Acc_Fragment"
         android:name="com.example.horza_one.ui_Admin.Asis_Acc.Asis_Acc_Fragment"
         android:label=""
         tools:layout="@layout/fragment_asis_acc_admin" >
         <action
-            android:id="@+id/action_asis_acc_to_asis_Acc_CA_Fragment"
+            android:id="@+id/action_asis_Acc_Fragment_to_asis_Acc_CA_Fragment"
             app:destination="@id/asis_Acc_CA_Fragment" />
         <action
-            android:id="@+id/action_asis_acc_to_asis_Acc_Hist_Fragment2"
+            android:id="@+id/action_asis_Acc_Fragment_to_asis_Acc_Hist_Fragment"
             app:destination="@id/asis_Acc_Hist_Fragment" />
+        <argument
+            android:name="dispositivoId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="dispositivoNombre"
+            app:argType="string"
+            android:defaultValue="" />
     </fragment>
 
     <fragment
@@ -96,7 +114,7 @@
         android:id="@+id/ajustes_Administracion_Areas"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_Administracion_Areas"
         android:label=""
-        tools:layout="@layout/fragment_ajustes__administracion__areas" />
+        tools:layout="@layout/fragment_ajustes__administracion__areas_new" />
     <fragment
         android:id="@+id/ajustes_G_H_C"
         android:name="com.example.horza_one.ui_Admin.Ajustes.Ajustes_G_H_C"

@@ -162,16 +162,28 @@ public class RegistroAccesoServiceImpl implements RegistroAccesoService {
                 minutosDiferencia = 0;
             }
 
-            // 11. Actualizar bitácora
+            // 11. Actualizar estado_presencia del usuario según el tipo de registro
+            String estadoPresenciaAnterior = usuario.getEstadoPresencia();
+            if ("Entrada".equals(request.getTipoRegistro())) {
+                usuario.setEstadoPresencia("Dentro");
+                System.out.println("✅ Usuario " + usuario.getMatricula() + " cambiado de '" + estadoPresenciaAnterior + "' a 'Dentro'");
+            } else if ("Salida".equals(request.getTipoRegistro())) {
+                usuario.setEstadoPresencia("Fuera");
+                System.out.println("✅ Usuario " + usuario.getMatricula() + " cambiado de '" + estadoPresenciaAnterior + "' a 'Fuera'");
+            }
+            usuarioRepository.save(usuario);
+            System.out.println("💾 Estado de presencia guardado en BD para usuario " + usuario.getMatricula() + ": " + usuario.getEstadoPresencia());
+
+            // 12. Actualizar bitácora
             bitacoraRepository.save(bitacora);
 
-            // 12. Generar ID único para el registro
+            // 13. Generar ID único para el registro
             Integer nuevoIdRegistro = registroRepository.findAll().stream()
                     .mapToInt(Registro::getIdRegistro)
                     .max()
                     .orElse(0) + 1;
 
-            // 13. Crear el registro
+            // 14. Crear el registro
             Registro registro = new Registro();
             registro.setIdRegistro(nuevoIdRegistro);
             registro.setUsuario(usuario);
@@ -186,7 +198,7 @@ public class RegistroAccesoServiceImpl implements RegistroAccesoService {
 
             Registro registroGuardado = registroRepository.save(registro);
 
-            // 14. Convertir a DTO y retornar
+            // 15. Convertir a DTO y retornar
             RegistroDTO registroDTO = convertirADTO(registroGuardado);
 
             return new RegistroAccesoResponse(
@@ -239,6 +251,7 @@ public class RegistroAccesoServiceImpl implements RegistroAccesoService {
                 registro.getBitacora().getIdBitacora(),
                 registro.getDispositivo().getIdDispositivo(),
                 registro.getArea().getIdArea(),
+                registro.getArea().getNombreArea(), // Nombre del área
                 registro.getTipoRegistro(),
                 registro.getFecha(),
                 registro.getHora(),

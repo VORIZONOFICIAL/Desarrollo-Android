@@ -111,10 +111,11 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textDispositivoActual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-medium"
-                        android:text="@string/area_actual"
+                        android:text="Dispositivo"
                         android:textColor="@color/text_secondary"
                         android:textSize="12sp" />
 
@@ -196,7 +197,7 @@
                     app:cardElevation="2dp">
 
                     <Spinner
-                        android:id="@+id/spinnerEdificio"
+                        android:id="@+id/spinnerAreas"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:paddingStart="16dp"
@@ -204,6 +205,16 @@
                         android:spinnerMode="dropdown" />
 
                 </androidx.cardview.widget.CardView>
+                
+                <!-- ProgressBar -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:indeterminateTint="@color/primary_orange"
+                    android:visibility="gone" />
 
 
             </LinearLayout>

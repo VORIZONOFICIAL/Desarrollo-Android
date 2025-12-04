@@ -19,10 +19,15 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginResponse login(LoginRequest loginRequest) {
+        System.out.println("========== INTENTO DE LOGIN ==========");
+        System.out.println("Correo recibido: [" + loginRequest.getCorreo() + "]");
+        System.out.println("Contraseña recibida: [" + loginRequest.getContrasena() + "]");
+        
         // Primero verificar si el correo existe
         Optional<Usuario> usuarioPorCorreo = usuarioRepository.findByCorreo(loginRequest.getCorreo());
 
         if (!usuarioPorCorreo.isPresent()) {
+            System.out.println("❌ Correo NO encontrado en BD");
             // El correo no existe en la base de datos
             return new LoginResponse(
                     false,
@@ -34,6 +39,11 @@ public class LoginServiceImpl implements LoginService {
                     null
             );
         }
+        
+        Usuario usuarioEncontrado = usuarioPorCorreo.get();
+        System.out.println("✅ Correo encontrado - Matrícula: " + usuarioEncontrado.getMatricula());
+        System.out.println("Contraseña en BD: [" + usuarioEncontrado.getContrasena() + "]");
+        System.out.println("Estado: " + usuarioEncontrado.getActivo());
 
         // El correo existe, ahora verificar la contraseña
         Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreoAndContrasena(
@@ -42,10 +52,12 @@ public class LoginServiceImpl implements LoginService {
         );
 
         if (usuarioOpt.isPresent()) {
+            System.out.println("✅ Contraseña CORRECTA");
             Usuario usuario = usuarioOpt.get();
 
             // Verificar si el usuario está activo
             if (!"Activo".equals(usuario.getActivo())) {
+                System.out.println("❌ Usuario INACTIVO");
                 return new LoginResponse(
                         false,
                         "Tu cuenta está inactiva. Contacta al administrador",
@@ -61,6 +73,7 @@ public class LoginServiceImpl implements LoginService {
                     usuario.getApellidoPaternoUsuario() + " " +
                     usuario.getApellidoMaternoUsuario();
 
+            System.out.println("✅ LOGIN EXITOSO - " + nombreCompleto);
             return new LoginResponse(
                     true,
                     "Login exitoso",
@@ -71,6 +84,7 @@ public class LoginServiceImpl implements LoginService {
                     usuario.getRol().getTipoPermiso()
             );
         } else {
+            System.out.println("❌ Contraseña INCORRECTA");
             // El correo existe pero la contraseña es incorrecta
             return new LoginResponse(
                     false,

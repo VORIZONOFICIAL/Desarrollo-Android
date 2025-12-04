@@ -58,6 +58,7 @@ public class RegistroAdapter extends RecyclerView.Adapter<RegistroAdapter.Regist
         TextView textHoraRegistro;
         TextView textEstadoRegistro;
         TextView textTipoRegistro;
+        TextView textAreaRegistro;
         TextView textFechaRegistro;
         LinearLayout badgeEstadoRegistro;
         LinearLayout layoutDiferenciaTiempo;
@@ -69,6 +70,7 @@ public class RegistroAdapter extends RecyclerView.Adapter<RegistroAdapter.Regist
             textHoraRegistro = itemView.findViewById(R.id.textHoraRegistro);
             textEstadoRegistro = itemView.findViewById(R.id.textEstadoRegistro);
             textTipoRegistro = itemView.findViewById(R.id.textTipoRegistro);
+            textAreaRegistro = itemView.findViewById(R.id.textAreaRegistro);
             textFechaRegistro = itemView.findViewById(R.id.textFechaRegistro);
             badgeEstadoRegistro = itemView.findViewById(R.id.badgeEstadoRegistro);
             layoutDiferenciaTiempo = itemView.findViewById(R.id.layoutDiferenciaTiempo);
@@ -81,7 +83,7 @@ public class RegistroAdapter extends RecyclerView.Adapter<RegistroAdapter.Regist
             // Mostrar hora
             textHoraRegistro.setText(registro.getHora());
             
-            // Mostrar tipo de registro con emoji
+            // Mostrar tipo de registro
             String tipoRegistro = registro.getTipoRegistro();
             if ("Entrada".equalsIgnoreCase(tipoRegistro)) {
                 textTipoRegistro.setText("Entrada");
@@ -89,6 +91,12 @@ public class RegistroAdapter extends RecyclerView.Adapter<RegistroAdapter.Regist
                 textTipoRegistro.setText("Salida");
             } else {
                 textTipoRegistro.setText(tipoRegistro);
+            }
+            
+            // Mostrar área del registro
+            if (textAreaRegistro != null) {
+                String nombreArea = registro.getNombreArea();
+                textAreaRegistro.setText(nombreArea != null ? nombreArea : "Sin área");
             }
             
             // Formatear y mostrar fecha

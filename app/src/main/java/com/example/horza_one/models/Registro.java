@@ -32,6 +32,9 @@ public class Registro {
 
     @SerializedName("estadoRegistro")
     private String estadoRegistro;
+    
+    @SerializedName("nombreArea")
+    private String nombreArea;
 
     // Constructor sin argumentos
     public Registro() {
@@ -116,5 +119,13 @@ public class Registro {
 
     public void setEstadoRegistro(String estadoRegistro) {
         this.estadoRegistro = estadoRegistro;
+    }
+    
+    public String getNombreArea() {
+        return nombreArea;
+    }
+    
+    public void setNombreArea(String nombreArea) {
+        this.nombreArea = nombreArea;
     }
 }

@@ -20,9 +20,6 @@ import com.example.horza_one.databinding.ActivityPanelPersonalBinding;
 
 public class PanelPersonal extends AppCompatActivity {
 
-
-
-
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityPanelPersonalBinding binding;
 
