@@ -38,10 +38,10 @@ public interface ApiService {
     //String BASE_URL = "http://10.0.2.2:8080/";
 
     //Mikel
-    String BASE_URL = "http://192.168.3.82:8080/";
+    //String BASE_URL = "http://192.168.3.82:8080/";
 
     //Greco
-    //String BASE_URL = "http://192.168.1.71:8080/";
+    String BASE_URL = "http://192.168.1.71:8080/";
 
 //    Ejemplo
 //    Endpoints de Usuarios
