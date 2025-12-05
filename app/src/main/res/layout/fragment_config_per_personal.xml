@@ -109,6 +109,7 @@
                         android:text="Nombre: "/>
 
                     <TextView
+                        android:id="@+id/texto_nom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/tarjeta_elevada"
@@ -136,6 +137,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_rfc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -161,6 +163,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_curp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -186,6 +189,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_tel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -211,6 +215,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_correo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -236,6 +241,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_area"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -261,6 +267,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_puesto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -286,6 +293,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_dir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -311,6 +319,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_f_alta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
@@ -336,6 +345,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/texto_est_alta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/tarjeta_elevada"
